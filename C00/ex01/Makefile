@@ -1,4 +1,4 @@
-NAME = ex01
+NAME = ex00
 CC = c++
 RM = rm -rf
 
