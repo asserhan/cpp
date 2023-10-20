@@ -6,13 +6,20 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/20 04:06:58 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/20 07:00:58 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <string>
-
+Contact :: Contact()
+{
+    
+}
+Contact :: ~Contact()
+{
+    
+}
 bool _isAlpha(const std :: string str)
 {
     int i=-1;
@@ -22,6 +29,9 @@ bool _isAlpha(const std :: string str)
             return(false);
     }
     return(true);
+}
+void Contact :: setIndex(int i) {
+    this->index = i;
 }
 std ::string Contact ::getinput(std ::string str)
 {
@@ -53,3 +63,4 @@ void Contact :: setinput()
     this->_nickname = getinput("Enter Nickname : ");
     this->_darkest_srcret = getinput("Enter Darkest secret : ");
 }
+

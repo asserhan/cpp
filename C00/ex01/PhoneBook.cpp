@@ -6,12 +6,18 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:15:10 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/20 04:22:37 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/20 07:06:40 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
+void PhoneBook :: _addContact()
+{
+    static int index ;
+    this->contact[index%8].setinput();
+    this->contact[index%8].setIndex(index);
+    index++;
+}
 void PhoneBook :: set_cmd() {
     bool contactEntred = false;
     while(1)
@@ -30,8 +36,10 @@ void PhoneBook :: set_cmd() {
         if(input == "ADD")
         {
             std :: cout <<"-----Please enter your contact information-----"<<std::endl;
-            contact->setinput();
+            _addContact();
             contactEntred = true;
+
+            
         }
         else if(input == "SEARCH")
         {

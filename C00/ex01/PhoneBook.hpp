@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:17:03 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/19 22:42:24 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/20 07:05:20 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PhoneBook
     Contact contact[8];
     public:
     void set_cmd();
-    
+    void _addContact();
 };
 
 #endif
