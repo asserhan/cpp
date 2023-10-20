@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:04:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/19 22:16:11 by hasserao         ###   ########.fr       */
+/*   Created: 2023/10/19 18:18:35 by hasserao          #+#    #+#             */
+/*   Updated: 2023/10/20 04:05:17 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 #include <iostream>
-#include <string>
 
-int main(int ac,char **argv)
-{
-    std :: string str;
-    if(ac == 1)
-        std :: cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" ;
-    else
-    {
-        for(int i=1;i<ac;i++)
-        {
-            str = argv[i];
-            for(int j=0;j<(int )str.length();j++)
-                std :: cout << (char)std :: toupper(str[j]);
-        }
-    }
-    std :: cout << std ::endl;
-    return(0);
+class Contact{
+    private:
+    std :: string _first_name;
+    std :: string _last_name;
+    std :: string _nickname;
+    std :: string _phone_number;
+    std :: string _darkest_srcret;
+    //int index;
+    public :
+    //setters
+    void setinput();
+    //getters
+    std::string getinput(std ::string str);
     
-}
+};
 
+#endif

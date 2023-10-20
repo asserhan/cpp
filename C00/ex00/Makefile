@@ -1,4 +1,4 @@
-NAME = ex01
+NAME = megaphone
 CC = c++
 RM = rm -rf
 
@@ -9,7 +9,7 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) -o $@ $^
+	$(CC) $(FLAGS) -o $@ $^
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@

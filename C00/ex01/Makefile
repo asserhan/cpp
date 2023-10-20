@@ -1,15 +1,15 @@
-NAME = ex00
+NAME = PhoneBook
 CC = c++
 RM = rm -rf
 
-SRC = megaphone.cpp
+SRC =  Contact.cpp PhoneBook.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(FLAGS) -o $@ $^
+$(NAME): $(OBJ) Contact.hpp PhoneBook.hpp
+	@$(CC) $(FLAGS) -o $@ $(OBJ)
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
