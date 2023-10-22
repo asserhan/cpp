@@ -6,12 +6,13 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 18:04:33 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:22:44 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <string>
+
 Contact :: Contact()
 {
     
@@ -46,12 +47,12 @@ std ::string Contact ::getinput(std ::string str)
     {
         std :: cout << str;
         std :: getline(std :: cin,line);
-        if(std :: cin.eof())
-        {
-            std :: cin.clear();
-            std :: cin.ignore();
-            exit(1);
-        }  
+        // if(std :: cin.eof())
+        // {
+        //     std :: cin.clear();
+        //     std :: cin.ignore();
+        //     exit(1);
+        // }  
         if(std :: cin.good() && _isAlpha(line) && !line.empty())
             correct = true;
         else{
@@ -66,5 +67,6 @@ void Contact :: setinput()
     this->_last_name = getinput("Enter Last name : ");
     this->_nickname = getinput("Enter Nickname : ");
     this->_darkest_secret = getinput("Enter Darkest secret : ");
+    this->_phone_number = getinput("Enter your phone number : ");
 }
 
