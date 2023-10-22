@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 16:01:09 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:04:33 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 Contact :: Contact()
 {
-    this->index =0;
+    
 }
 Contact :: ~Contact()
 {
@@ -32,6 +32,10 @@ bool _isAlpha(const std :: string str)
 }
 void Contact :: setIndex(int i) {
     this->index = i;
+}
+int Contact :: _getIndex()
+{
+   return(this->index);
 }
 std ::string Contact ::getinput(std ::string str)
 {

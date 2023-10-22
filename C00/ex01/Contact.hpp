@@ -6,13 +6,14 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:35 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 16:00:56 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:02:37 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 #include <iostream>
+#include "PhoneBook.hpp"
 
 class Contact{
     private:

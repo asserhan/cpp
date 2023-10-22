@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:15:10 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 16:01:22 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:03:15 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@ void PhoneBook :: _addContact()
     this->contact[index%8].setIndex(index);
     index++;
 }
-int Contact :: _getIndex()
-{
-   return(this->index);
-}
+
 void PhoneBook :: _displayContact(int index)
 {
-    std :: cout << "---------------------------------------------------------" << std :: endl;
-    std :: cout << "|   Index    |  First Name  |  Last Name  |  Nickname  |"<< std :: endl;
-    std :: cout << "---------------------------------------------------------" << std :: endl;
+    
+   //std :: cout << contact[index]._getIndex() << std :: endl;
+    // for (int i=0;i<8;i++)
+    // {
+    //     std :: cout << "---------------------------------------------------------" << std :: endl;
+    //     std :: cout << "|   Index    |  First Name  |  Last Name  |  Nickname  |"<< std :: endl;
+       std :: cout << "---------------------------------------------------------" << std :: endl;
+        
+    // }
    // std :: cout << "|" this->contact[index].index (Inaccessible)
     
 }
