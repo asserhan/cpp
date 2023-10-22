@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:15:10 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 18:28:20 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:38:14 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void PhoneBook :: set_cmd() {
             std :: cout << "Please enter a command : " ;
         std :: string input;
         std :: getline(std :: cin,input);
-        // if(std :: cin.eof()==1 || std :: cin.fail() || std :: cin.bad())
-        // {
-        //     std :: cin.clear();
-        //     std::cin.ignore();
-        //     break;
-        // }
+        if(std :: cin.eof()==1 || std :: cin.fail() || std :: cin.bad())
+        {
+            std :: cin.clear();
+            std::cin.ignore();
+            break;
+        }
         if(input == "ADD")
         {
             std :: cout <<"-----Please enter your contact information-----"<<std::endl;
