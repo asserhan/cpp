@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/20 07:00:58 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/21 20:48:52 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ void Contact :: setinput()
     this->_first_name = getinput("Enter First name: ");
     this->_last_name = getinput("Enter Last name : ");
     this->_nickname = getinput("Enter Nickname : ");
-    this->_darkest_srcret = getinput("Enter Darkest secret : ");
+    this->_darkest_secret = getinput("Enter Darkest secret : ");
 }
 
