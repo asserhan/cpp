@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:35 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 18:15:15 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:15:06 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ class Contact{
     std :: string _darkest_secret;
     int index;
     public :
-    std::string getinput(std ::string str);
-    void setIndex(int i);
-    int _getIndex();
     //setters
     void setinput();
+    void setIndex(int i);
     //getters
+    std::string getinput(std ::string str);
+    std :: string  _getFistName();
+    std :: string _getLastName();
+    std :: string _getNickName();
+    int _getIndex();
     Contact();
     ~Contact();
     

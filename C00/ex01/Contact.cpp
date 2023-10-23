@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 18:43:12 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/22 19:32:09 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 
 Contact :: Contact()
 {
-    
 }
 Contact :: ~Contact()
 {
     
 }
+std :: string Contact :: _getFistName() {
+    return(this->_first_name);
+} 
+std :: string Contact :: _getLastName() {
+    return(this->_last_name);
+} 
+std :: string Contact :: _getNickName() {
+    return(this->_nickname);
+} 
+
 bool _isAlpha(const std :: string str)
 {
     int i=-1;

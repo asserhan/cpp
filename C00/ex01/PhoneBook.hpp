@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:17:03 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 18:27:32 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:31:48 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PhoneBook
     void _addContact();
    void  _displayContacts();
     void  _display(PhoneBook _contact);
+    void _printContact(int index);
 };
 
 #endif
