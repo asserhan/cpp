@@ -1,29 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 20:17:03 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/23 21:59:25 by hasserao         ###   ########.fr       */
+/*   Created: 2023/10/23 17:57:10 by hasserao          #+#    #+#             */
+/*   Updated: 2023/10/23 17:57:11 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP 
-#define PHONEBOOK_HPP
-#include <iostream>
-#include "Contact.hpp"
-
-class PhoneBook
-{
-    private:
-    Contact contact[8];
-    public:
-    void set_cmd();
-    void _addContact();
-   void  _displayContacts() const;
-    void _printContact(int index) const;
-};
-
-#endif

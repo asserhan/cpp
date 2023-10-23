@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/22 19:32:09 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/23 21:53:52 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Contact :: ~Contact()
 {
     
 }
-std :: string Contact :: _getFistName() {
+std :: string Contact :: _getFistName() const{
     return(this->_first_name);
 } 
-std :: string Contact :: _getLastName() {
+std :: string Contact :: _getLastName() const{
     return(this->_last_name);
 } 
-std :: string Contact :: _getNickName() {
+std :: string Contact :: _getNickName() const{
     return(this->_nickname);
 } 
 
@@ -53,7 +53,7 @@ bool _isDigit(const std :: string str)
 void Contact :: setIndex(int i) {
     this->index = i;
 }
-int Contact :: _getIndex()
+int Contact :: _getIndex() const
 {
    return(this->index);
 }

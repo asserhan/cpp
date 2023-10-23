@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:15:10 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/23 17:47:51 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/23 21:57:56 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ std :: string  printed_len(std :: string str)
         str = str.substr(0,9) +".";
     return (str);
 }
-void PhoneBook :: _displayContacts()
+void PhoneBook :: _displayContacts() const
 {
-    
-   //std :: cout << contact[index]._getIndex() << std :: endl;
     for (int i=0;i<8;i++)
     {
         if(!contact[i]._getFistName().empty() ){
@@ -43,7 +41,7 @@ void PhoneBook :: _displayContacts()
         }
     }
 }
-void PhoneBook ::  _printContact(int index)
+void PhoneBook ::  _printContact(int index) const
 {
         if(!contact[index]._getFistName().empty()){
             std :: cout << "---------------------------------------------" << std :: endl;
