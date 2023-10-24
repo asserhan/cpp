@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 20:17:03 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/24 21:18:05 by hasserao         ###   ########.fr       */
+/*   Created: 2023/10/24 21:58:42 by hasserao          #+#    #+#             */
+/*   Updated: 2023/10/24 22:29:19 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-# include "Contact.hpp"
-# include <iostream>
+#include "Zombie.hpp"
 
-class PhoneBook
-{
-  private:
-	Contact contact[8];
-
-  public:
-	void set_cmd();
-	void _addContact();
-	void _displayContacts() const;
-	void _printContact(int index) const;
-};
-
-#endif
+int main(){
+    Zombie zombie;
+    zombie._setName("HANANE");
+    zombie.announce();
+}
