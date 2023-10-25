@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/25 06:38:07 by hasserao          #+#    #+#             */
+/*   Updated: 2023/10/25 06:55:50 by hasserao         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
+#include <iostream>
+
+class Zombie
+{
+    private:
+    std :: string name;
+    public:
+    void announce (void);
+    Zombie(std ::string name);
+    ~Zombie();
+    
+};
+Zombie*zombieHorde(int N,std::string name);
+#endif
