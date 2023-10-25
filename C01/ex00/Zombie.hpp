@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 21:10:40 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/24 22:28:33 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/25 02:54:37 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ class Zombie{
    std :: string name;
    public:
    void  announce (void);
-   std :: string  _getName() const;
-   void _setName(std :: string name);
-   
+   Zombie* newZombie( std::string name);
+   Zombie(std :: string name);
+   ~Zombie();
 };
+
+void randomChump( std::string name );
 
 #endif
