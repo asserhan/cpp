@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 06:38:03 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/26 15:50:53 by hasserao         ###   ########.fr       */
+/*   Created: 2023/10/26 17:15:41 by hasserao          #+#    #+#             */
+/*   Updated: 2023/10/26 17:29:02 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie :: Zombie()
-{
-
-}
-Zombie :: ~Zombie()
-{
-     std :: cout << "zombie has been destroyed" << std ::endl;
-}
-void Zombie :: _setName(std :: string name)
-{
-    this->name = name;
-}
-void Zombie ::  announce (void){
-    std :: cout <<  this->name << ": BraiiiiiiinnnzzzZ..." << std :: endl;
+int main(){
+    std :: string var = "HI THIS IS BRAIN";
+    std :: string *stringPTR =  &var;
+    std :: string stringREF 
 }

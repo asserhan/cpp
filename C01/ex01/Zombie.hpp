@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 06:38:07 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/25 06:55:50 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:46:26 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ class Zombie
     std :: string name;
     public:
     void announce (void);
-    Zombie(std ::string name);
+    void _setName(std :: string name);
+    Zombie();
     ~Zombie();
     
 };

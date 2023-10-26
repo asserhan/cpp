@@ -1,17 +1,17 @@
-NAME = ex01
+NAME = ex02
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC = Zombie.cpp zombieHorde.cpp main.cpp
+SRC = main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Zombie.hpp
+$(NAME): $(OBJ) 
 	$(CC) $(FLAGS) $(OBJ) -o $@ 
 
-$(OBJ_DIR)/%.o: %.cpp Zombie.hpp
+$(OBJ_DIR)/%.o: %.cpp 
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -c $< -o $@
 

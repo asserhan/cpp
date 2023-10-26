@@ -2,7 +2,7 @@ NAME = ex00
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC = Zombie.cpp zombieHorde.cpp main.cpp
+SRC = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
