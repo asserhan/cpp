@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:15:29 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/27 16:07:15 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:28:12 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ class HumanA{
     private:
     Weapon& weapon;
     std :: string name;
-    HumanA(Weapon& weapon_A,std :: string name);
+    public :
+    HumanA(std ::string name_A,Weapon& weapon_A);
     ~HumanA();
     void attack();
 };
