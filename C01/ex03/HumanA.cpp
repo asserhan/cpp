@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:15:31 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/27 20:21:31 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/27 21:42:54 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void HumanA :: attack (){
     if(weapon.getType() != "")
         std :: cout << this->name << " attacks with their " << weapon.getType() << std ::endl;
     else
-        std :: cout << this->name << " does not have a weapon "<< std ::endl;
+        std :: cout << this->name << " is unarmed "<< std ::endl;
 }
