@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:15:10 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/31 19:59:27 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/31 22:07:02 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ std ::string printed_len(std ::string str)
 }
 void PhoneBook ::_displayContacts() const
 {
-	for (int i = 0; i < 8; i++)
-	{
 			std ::cout << "---------------------------------------------" << std ::endl;
 			std ::cout << "|   Index  |First Name| Last Name| Nickname |" << std ::endl;
 			std ::cout << "---------------------------------------------" << std ::endl;
+	for (int i = 0; i < 8; i++)
+	{
 		if (!contact[i]._getFistName().empty())
 		{
 			std ::cout << "|";
@@ -90,28 +90,25 @@ void PhoneBook ::set_cmd()
 		{
 			std ::cout << "-----Please enter your contact information-----" << std::endl;
 			_addContact();
-			std ::cout << contact->_getIndex() << std ::endl;
 		}
 		else if (input == "SEARCH")
 		{
+            if(contact[0]._getFistName().empty())
+            {
+                std :: cout << "the Phonebook is empty" << std ::endl;
+                continue;
+            }
 			_displayContacts();
 			std ::cout << "--Please enter the index of the contact you want to display--" << std ::endl;
 			std ::string index;
 			std :: getline(std :: cin,index);
             int nbr = atoi(index.c_str());
 			if (_isDigit(index) && nbr >= 0 && nbr < 8 && !index.empty()) 
-			{
-               
 				_printContact(nbr);
-				// std ::cin.clear();
-				// std::cin.ignore();
-			}
 			else
             {
 				std ::cout << "Wrong index" << std ::endl;
                 continue;
-                // std ::cin.clear();
-				// std::cin.ignore();
             }
 		}
 		else if (input == "EXIT")

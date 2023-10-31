@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/31 20:03:50 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/31 21:44:36 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,7 @@ std ::string Contact ::getinput(std ::string str)
 				&& !_isDigit(line) && !line.empty())
 			correct = true;
 		else
-		{
 			std ::cout << "Please try again !" << std ::endl;
-		}
 	}
 	return (line);
 }
