@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:15:10 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/31 22:07:02 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/31 22:11:03 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void PhoneBook ::set_cmd()
 		std ::cout << "Please enter a command : ";
 		std ::string input;
 		std ::getline(std ::cin, input);
-		// input = trim_spaces(input);
 		if (std ::cin.eof()  )
 			exit(1);
 		if (input == "ADD")
