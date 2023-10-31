@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:17:03 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/24 21:18:05 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/31 18:31:40 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ class PhoneBook
 	void _displayContacts() const;
 	void _printContact(int index) const;
 };
-
+bool	_isDigit(const std ::string str);
 #endif

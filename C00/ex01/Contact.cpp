@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:32 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/24 22:24:16 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/31 20:03:50 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ std ::string Contact ::_getNickName() const
 {
 	return (this->_nickname);
 }
+std ::string Contact ::_getPhone() const
+{
+	return (this->_phone_number);
+}
+
+std ::string Contact ::_getDarksecret() const
+{
+	return (this->_darkest_secret);
+}
+
 
 bool	_isAlpha(const std ::string str)
 {
@@ -75,16 +85,12 @@ std ::string Contact ::getinput(std ::string str)
 		std ::cout << str;
 		std ::getline(std ::cin, line);
 		if (std ::cin.eof())
-		{
-			std ::cin.clear();
-			std ::cin.ignore();
 			exit(1);
-		}
 		if (str.compare("Enter your phone number : ") == 0 && !line.empty()
-			&& std ::cin.good() && _isDigit(line))
+			&& _isDigit(line))
 			correct = true;
-		else if (str.compare("Enter your phone number : ") && std ::cin.good()
-				&& _isAlpha(line) && !line.empty())
+		else if (str.compare("Enter your phone number : ") 
+				&& !_isDigit(line) && !line.empty())
 			correct = true;
 		else
 		{
@@ -98,6 +104,6 @@ void Contact ::setinput()
 	this->_first_name = getinput("Enter First name: ");
 	this->_last_name = getinput("Enter Last name : ");
 	this->_nickname = getinput("Enter Nickname : ");
-	this->_darkest_secret = getinput("Enter Darkest secret : ");
 	this->_phone_number = getinput("Enter your phone number : ");
+	this->_darkest_secret = getinput("Enter Darkest secret : ");
 }

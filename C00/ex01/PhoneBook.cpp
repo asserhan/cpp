@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:15:10 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/24 21:18:00 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:59:27 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ void PhoneBook ::_displayContacts() const
 {
 	for (int i = 0; i < 8; i++)
 	{
-		if (!contact[i]._getFistName().empty())
-		{
 			std ::cout << "---------------------------------------------" << std ::endl;
 			std ::cout << "|   Index  |First Name| Last Name| Nickname |" << std ::endl;
 			std ::cout << "---------------------------------------------" << std ::endl;
+		if (!contact[i]._getFistName().empty())
+		{
+			std ::cout << "|";
 			std::cout << std ::setw(10) << contact[i]._getIndex();
 			std ::cout << "|";
 			std ::cout << std ::setw(10) << printed_len(contact[i]._getFistName());
@@ -51,17 +52,12 @@ void PhoneBook ::_printContact(int index) const
 {
 	if (!contact[index]._getFistName().empty())
 	{
-		std ::cout << "---------------------------------------------" << std ::endl;
-		std ::cout << "|   Index  |First Name| Last Name| Nickname |" << std ::endl;
-		std ::cout << "---------------------------------------------" << std ::endl;
-		std ::cout << std ::setw(10) << contact[index]._getIndex();
-		std ::cout << "|";
-		std ::cout << std ::setw(10) << printed_len(contact[index]._getFistName());
-		std ::cout << "|";
-		std ::cout << std ::setw(10) << printed_len(contact[index]._getLastName());
-		std ::cout << "|";
-		std ::cout << std ::setw(10) << printed_len(contact[index]._getNickName());
-		std ::cout << "|" << std ::endl;
+		std ::cout << "Index : " << contact[index]._getIndex()<<std ::endl;
+		std ::cout << "First Name : "<< contact[index]._getFistName() <<std :: endl;
+		std ::cout << "Last Name : " << contact[index]._getLastName() <<std ::endl;
+		std ::cout << "Nick Name : " << contact[index]._getNickName() << std ::endl;
+        std ::cout << "Phone Number : " << contact[index]._getPhone() << std :: endl;
+        std ::cout << "Darkest Secret : "<< contact[index]._getDarksecret() << std :: endl;
 	}
 	else
 		std ::cout << "This Contact does not exist" << std ::endl;
@@ -87,13 +83,9 @@ void PhoneBook ::set_cmd()
 		std ::cout << "Please enter a command : ";
 		std ::string input;
 		std ::getline(std ::cin, input);
-		input = trim_spaces(input);
-		if (std ::cin.eof() == 1 || std ::cin.fail() || std ::cin.bad())
-		{
-			std ::cin.clear();
-			std::cin.ignore();
-			break ;
-		}
+		// input = trim_spaces(input);
+		if (std ::cin.eof()  )
+			exit(1);
 		if (input == "ADD")
 		{
 			std ::cout << "-----Please enter your contact information-----" << std::endl;
@@ -103,22 +95,27 @@ void PhoneBook ::set_cmd()
 		else if (input == "SEARCH")
 		{
 			_displayContacts();
-			std ::cout << "---Please enter the index of the contact you want to display--" << std ::endl;
-			int index;
-			std ::cin >> index;
-			if (std ::cin.good() && index >= 0 && index < 8)
+			std ::cout << "--Please enter the index of the contact you want to display--" << std ::endl;
+			std ::string index;
+			std :: getline(std :: cin,index);
+            int nbr = atoi(index.c_str());
+			if (_isDigit(index) && nbr >= 0 && nbr < 8 && !index.empty()) 
 			{
-				_printContact(index);
-				std ::cin.clear();
-				std::cin.ignore();
+               
+				_printContact(nbr);
+				// std ::cin.clear();
+				// std::cin.ignore();
 			}
 			else
-				std ::cout << "Error Please enter a number between 0 and 8" << std ::endl;
+            {
+				std ::cout << "Wrong index" << std ::endl;
+                continue;
+                // std ::cin.clear();
+				// std::cin.ignore();
+            }
 		}
 		else if (input == "EXIT")
-		{
 			break ;
-		}
 		else
 			std ::cout << "Please try again !" << std ::endl;
 	}

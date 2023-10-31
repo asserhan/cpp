@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:18:35 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/24 21:17:48 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:19:47 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ class Contact
 	std ::string _getFistName() const;
 	std ::string _getLastName() const;
 	std ::string _getNickName() const;
+	std ::string _getPhone() const;
+	std ::string _getDarksecret() const;
+	
 	int _getIndex() const;
 	Contact();
 	~Contact();
