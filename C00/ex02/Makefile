@@ -1,14 +1,14 @@
-NAME = ex03
+NAME = Account
 CC = c++
 RM = rm -rf
 
-SRC =  Contact.cpp PhoneBook.cpp main.cpp
+SRC =  Account.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Contact.hpp PhoneBook.hpp
+$(NAME): $(OBJ) Account.hpp
 	@$(CC) $(FLAGS) -o $@ $(OBJ)
 
 %.o: %.cpp
