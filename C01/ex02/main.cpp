@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:15:41 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/26 18:18:29 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/11/04 14:53:08 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ int main(){
     std :: cout << "The value of the string variable is : " << var << std ::endl;
     std :: cout << "The value pointed to by stringPTR is : " << *stringPTR << std ::endl;
     std :: cout << "The value pointed to by stringREF is : " << stringREF << std ::endl;
+    return(0);
 }

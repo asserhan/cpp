@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 06:37:58 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/26 16:15:00 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/11/04 14:52:39 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int main(int ac,char *argv[])
         
     }
     else
+    {
         std :: cout <<  " Wrong Arguments" << std ::endl;
-    
+        return(1);
+    }
+    return(0);
 }

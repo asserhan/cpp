@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:19:49 by hasserao          #+#    #+#             */
-/*   Updated: 2023/11/03 19:27:02 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/11/04 14:53:44 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int	main(int ac, char *argv[])
 			jim.attack();
 		}
 	}
-	else
+	else{
+	
 		std ::cout << "Wrong argument" << std ::endl;
+		return(1);
+	}
+	return(0);
 }

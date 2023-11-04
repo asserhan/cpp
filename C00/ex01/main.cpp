@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:30:11 by hasserao          #+#    #+#             */
-/*   Updated: 2023/10/24 21:17:54 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/11/04 14:51:33 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,9 @@ int	main(int ac, char *argv[])
 		contacts.set_cmd();
 	}
 	else
+	{
 		std ::cout << "Wrong arguments" << std ::endl;
+		return(1);
+	}
+	return(0);
 }
