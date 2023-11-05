@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:20:45 by hasserao          #+#    #+#             */
-/*   Updated: 2023/11/03 19:26:13 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/11/05 00:02:45 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ HumanB ::~HumanB()
 }
 void HumanB ::attack()
 {
-	if (weapon->getType() != "" && weapon != NULL)
+
+	if ( this->weapon != NULL)
 		std ::cout << this->name << " attacks with their " << weapon->getType() << std ::endl;
 	else
 		std ::cout << this->name << " is unarmed " << std ::endl;

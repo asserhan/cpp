@@ -2,16 +2,16 @@ NAME = ex04
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC = Weapon.cpp HumanA.cpp HumanB.cpp  main.cpp
+SRC =  main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Weapon.hpp HumanA.hpp  HumanB.hpp
+$(NAME): $(OBJ) 
 	$(CC) $(FLAGS) $(OBJ) -o $@ 
 
-$(OBJ_DIR)/%.o: %.cpp Weapon.hpp HumanA.hpp  HumanB.hpp
+$(OBJ_DIR)/%.o: %.cpp 
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -c $< -o $@
 
