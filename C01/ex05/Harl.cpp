@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 15:58:15 by hasserao          #+#    #+#             */
-/*   Updated: 2023/11/07 19:59:25 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/11/07 19:59:44 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ void Harl ::complain(std::string level)
 {
 	ptrfunc ptrf[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string levels[4] = {"debug", "info", "warning", "error"};
-	for (int i = 0; i < 4
-    ; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (levels[i] == level)
 			(this->*ptrf[i])();
