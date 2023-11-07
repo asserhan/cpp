@@ -1,4 +1,4 @@
-NAME = harl
+NAME = harlFilter
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
