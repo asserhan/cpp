@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 13:19:51 by hasserao          #+#    #+#             */
-/*   Updated: 2023/11/08 23:31:24 by hasserao         ###   ########.fr       */
+/*   Created: 2023/11/08 23:40:10 by hasserao          #+#    #+#             */
+/*   Updated: 2023/11/08 23:42:26 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef REPLACE_HPP
+# define REPLACE_HPP
+#include <iostream>
+#include <fstream>
 
-std ::string const &Weapon ::getType()
-{
-	return (this->type);
-}
-void Weapon ::setType(std ::string type)
-{
-		this->type = type;
-}
-Weapon ::Weapon(std ::string type)
-{
-	setType(type);
-}
-Weapon ::~Weapon()
-{
-}
+int  ft_replace(char **argv);
+#endif

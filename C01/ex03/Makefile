@@ -1,4 +1,4 @@
-NAME = ex03
+NAME = human
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj

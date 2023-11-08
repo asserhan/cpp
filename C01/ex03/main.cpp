@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:19:49 by hasserao          #+#    #+#             */
-/*   Updated: 2023/11/05 00:04:18 by hasserao         ###   ########.fr       */
+/*   Updated: 2023/11/08 23:31:52 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ int	main(int ac, char *argv[])
 			jim.attack();
 			club.setType("some other type of club");
 			jim.attack();
-		}
-		{
-			HumanB hamid("hamid");
-			hamid.attack();
 		}
 	}
 	else{

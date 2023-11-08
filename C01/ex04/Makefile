@@ -2,16 +2,16 @@ NAME = ex04
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC =  main.cpp
+SRC = Replace.cpp  main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ) 
+$(NAME): $(OBJ) Replace.hpp
 	$(CC) $(FLAGS) $(OBJ) -o $@ 
 
-$(OBJ_DIR)/%.o: %.cpp 
+$(OBJ_DIR)/%.o: %.cpp Replace.hpp
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -c $< -o $@
 
