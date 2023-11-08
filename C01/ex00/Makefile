@@ -1,4 +1,4 @@
-NAME = ex00
+NAME = zombie
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
