@@ -3,12 +3,18 @@
 #include <iostream>
 #include <string>
 
-class a{
-    std :: string  *x;
-  
-    public :
-    a():x(NULL){
-        std :: cout << x <<std :: endl;
-    }
+class Fixed{
+    private:
+        int fixed_raw;
+        static const int fract;
+    public:
+        Fixed();
+        ~Fixed();
+        Fixed(const Fixed &oobj);
+        Fixed &operator=(const Fixed &oobj);
+        int getRawBits( void) const;
+        void setRawBits( int const raw);
+    
+
 };
 #endif
