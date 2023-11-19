@@ -24,6 +24,28 @@ class Fixed{
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt( void )const;
+        bool operator>(const Fixed &obj)const;
+        bool operator<(const Fixed &obj)const;
+        bool operator<=(const Fixed &obj)const;
+        bool operator>=(const Fixed &obj)const;
+        bool operator==(const Fixed &obj)const;
+        bool operator!=(const Fixed &obj)const;
+        Fixed operator+(const Fixed &obj)const;
+        Fixed operator-(const Fixed &obj)const;
+        Fixed operator*(const Fixed &obj)const;
+        Fixed operator/(const Fixed &obj)const;
+        //pre increment
+        Fixed &operator++(int);
+        //post increment 
+        Fixed operator++();
+        //pre decrement
+        Fixed &operator--(int);
+        //post decrement 
+        Fixed operator--();
+        static const Fixed &min_Cfixed(const Fixed&o1,const Fixed &o2);
+    
+        
+
     
 
 };

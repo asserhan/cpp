@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = ex00
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
