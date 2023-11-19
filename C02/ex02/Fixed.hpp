@@ -35,14 +35,17 @@ class Fixed{
         Fixed operator*(const Fixed &obj)const;
         Fixed operator/(const Fixed &obj)const;
         //pre increment
-        Fixed &operator++(int);
+        Fixed &operator++();
         //post increment 
-        Fixed operator++();
+        Fixed operator++(int);
         //pre decrement
-        Fixed &operator--(int);
+        Fixed &operator--();
         //post decrement 
-        Fixed operator--();
+        Fixed operator--(int);
         static const Fixed &min_Cfixed(const Fixed&o1,const Fixed &o2);
+        static Fixed &min_Fixed(Fixed &o1,Fixed &o2);
+        static const Fixed &max_Cfixed(const Fixed&o1,const Fixed &o2);
+        static Fixed &max_Fixed(Fixed &o1,Fixed &o2);
     
         
 
