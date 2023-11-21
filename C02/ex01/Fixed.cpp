@@ -1,52 +1,55 @@
 #include "Fixed.hpp"
 
-Fixed :: Fixed(){
-    this->fixed_raw = 0;
-    std :: cout << "Default constructor called" << std :: endl;
-}
-Fixed ::  ~Fixed(){
-    std :: cout << "Destructor called" << std :: endl;
-}
-Fixed :: Fixed(const Fixed &oobj)
+Fixed ::Fixed()
 {
-    std :: cout << "Copy constructor called" << std :: endl;
-    (*this) = oobj;
-
+	this->fixed_raw = 0;
+	std ::cout << "Default constructor called" << std ::endl;
 }
-Fixed &Fixed :: operator=(const Fixed &oobj)
+Fixed ::~Fixed()
 {
-    std :: cout << "Copy assignment operator called" << std :: endl;
-    this->fixed_raw = oobj.fixed_raw;
-    return (*this);
+	std ::cout << "Destructor called" << std ::endl;
 }
-int Fixed :: getRawBits( void) const{
-    std :: cout << "getRawBits member function called"<< std :: endl;
-    return(this->fixed_raw);
-}
-void Fixed :: setRawBits( int const raw){
-    fixed_raw = raw;
-}
-Fixed :: Fixed(const int digit)
+Fixed ::Fixed(const Fixed &oobj)
 {
-    std :: cout << "Int constructor called" << std :: endl;
-    this->fixed_raw = digit << fract;
-
+	std ::cout << "Copy constructor called" << std ::endl;
+	(*this) = oobj;
 }
-Fixed :: Fixed(const float digit)
+Fixed &Fixed ::operator=(const Fixed &oobj)
 {
-    std :: cout << "Float constructor called" << std :: endl;
-    this->fixed_raw = roundf(digit * (1 << fract));
+	std ::cout << "Copy assignment operator called" << std ::endl;
+	this->fixed_raw = oobj.fixed_raw;
+	return (*this);
 }
-float Fixed :: toFloat(void) const{
-    return((float)this->fixed_raw / 256); 
+int Fixed ::getRawBits(void) const
+{
+	std ::cout << "getRawBits member function called" << std ::endl;
+	return (this->fixed_raw);
 }
-int Fixed :: toInt(void) const {
-    return(this->fixed_raw >> fract);
+void Fixed ::setRawBits(int const raw)
+{
+	fixed_raw = raw;
+}
+Fixed ::Fixed(const int digit)
+{
+	std ::cout << "Int constructor called" << std ::endl;
+	this->fixed_raw = digit << fract;
+}
+Fixed ::Fixed(const float digit)
+{
+	std ::cout << "Float constructor called" << std ::endl;
+	this->fixed_raw = roundf(digit * (1 << fract));
+}
+float Fixed ::toFloat(void) const
+{
+	return ((float)this->fixed_raw / 256);
+}
+int Fixed ::toInt(void) const
+{
+	return (this->fixed_raw >> fract);
 }
 //overload << operator
-std :: ostream &operator<<(std :: ostream &os,const Fixed &oobj)
+std ::ostream &operator<<(std ::ostream &os, const Fixed &oobj)
 {
-    os << oobj.toFloat();
-    return (os);
-
+	os << oobj.toFloat();
+	return (os);
 }
