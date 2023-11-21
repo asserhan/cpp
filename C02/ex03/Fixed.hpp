@@ -42,10 +42,10 @@ class Fixed{
         Fixed &operator--();
         //post decrement 
         Fixed operator--(int);
-        static const Fixed &min_Cfixed(const Fixed&o1,const Fixed &o2);
-        static Fixed &min_Fixed(Fixed &o1,Fixed &o2);
-        static const Fixed &max_Cfixed(const Fixed&o1,const Fixed &o2);
-        static Fixed &max_Fixed(Fixed &o1,Fixed &o2);
+        static const Fixed &min(const Fixed&o1,const Fixed &o2);
+        static Fixed &min(Fixed &o1,Fixed &o2);
+        static const Fixed &max(const Fixed&o1,const Fixed &o2);
+        static Fixed &max(Fixed &o1,Fixed &o2);
     
         
 

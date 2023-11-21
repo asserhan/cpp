@@ -39,9 +39,8 @@ Fixed ::Fixed(const float digit)
 	std ::cout << "Float constructor called" << std ::endl;
 	this->fixed_raw = roundf(digit * (1 << fract));
 }
-float Fixed ::toFloat(void) const
-{
-	return ((float)this->fixed_raw / 256);
+float Fixed :: toFloat(void) const{
+    return((float)this->fixed_raw / (float)(1 << fract)); 
 }
 int Fixed ::toInt(void) const
 {

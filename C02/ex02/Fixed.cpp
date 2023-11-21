@@ -38,7 +38,7 @@ Fixed :: Fixed(const float digit)
     this->fixed_raw = roundf(digit * (1 << fract));
 }
 float Fixed :: toFloat(void) const{
-    return((float)this->fixed_raw / (1 << fract)); 
+    return((float)this->fixed_raw / (float)(1 << fract)); 
 }
 int Fixed :: toInt(void) const {
     return(this->fixed_raw >> fract);
@@ -51,34 +51,34 @@ std :: ostream &operator<<(std :: ostream &os,const Fixed &oobj)
 
 }
 bool Fixed :: operator>(const Fixed &obj)const{
-    return(this->fixed_raw > obj.fixed_raw);
+     return(this->toFloat() > obj.toFloat());
 }
 bool Fixed :: operator<(const Fixed &obj)const{
-    return(this->fixed_raw < obj.fixed_raw);
+     return(this->toFloat() < obj.toFloat());
 }
 bool Fixed :: operator<=(const Fixed &obj)const{
-    return(this->fixed_raw <= obj.fixed_raw);
+     return(this->toFloat() <= obj.toFloat());
 }
 bool Fixed :: operator>=(const Fixed &obj)const{
-    return(this->fixed_raw >= obj.fixed_raw);
+     return(this->toFloat() >= obj.toFloat());
 }
 bool Fixed :: operator==(const Fixed &obj)const{
-    return(this->fixed_raw == obj.fixed_raw);
+     return(this->toFloat() == obj.toFloat());
 }
 bool Fixed :: operator!=(const Fixed &obj)const{
-    return(this->fixed_raw != obj.fixed_raw);
+     return(this->toFloat() != obj.toFloat());
 }
 Fixed Fixed :: operator+(const Fixed &obj)const{
-    return(this->fixed_raw + obj.fixed_raw);
+     return(this->toFloat() + obj.toFloat());
 }
 Fixed Fixed :: operator-(const Fixed &obj)const{
-    return(this->fixed_raw - obj.fixed_raw);
+    return(this->toFloat() - obj.toFloat());
 }
 Fixed Fixed :: operator*(const Fixed &obj)const{
     return(this->toFloat() * obj.toFloat());
 }
 Fixed Fixed :: operator/(const Fixed &obj)const{
-    return(this->fixed_raw / obj.fixed_raw);
+    return(this->toFloat() / obj.toFloat());
 }
 Fixed &Fixed :: operator++()
 {
@@ -102,26 +102,26 @@ Fixed Fixed :: operator--(int)
     --(*this);
     return(res);
 }
-const Fixed &Fixed :: min_Cfixed(const Fixed&o1,const Fixed &o2){
-    if(o1 < o2)
+const Fixed &Fixed :: min(const Fixed&o1,const Fixed &o2){
+    if(o1.toFloat() < o2.toFloat())
         return(o1);
     else
         return(o2);
 }
-Fixed &Fixed :: min_Fixed(Fixed &o1,Fixed &o2){
-    if(o1 < o2)
+Fixed &Fixed :: min(Fixed &o1,Fixed &o2){
+    if(o1.toFloat() < o2.toFloat())
         return(o1);
     else
         return(o2);
 }
-const Fixed &Fixed :: max_Cfixed(const Fixed&o1,const Fixed &o2){
-    if(o1 > o2)
+const Fixed &Fixed :: max(const Fixed&o1,const Fixed &o2){
+    if(o1.toFloat() > o2.toFloat())
         return(o1);
     else
         return(o2);
 }
-Fixed &Fixed :: max_Fixed(Fixed &o1,Fixed &o2){
-    if(o1 > o2)
+Fixed &Fixed :: max(Fixed &o1,Fixed &o2){
+    if(o1.toFloat() > o2.toFloat())
         return(o1);
     else
         return(o2);
