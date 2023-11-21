@@ -38,7 +38,7 @@ Fixed :: Fixed(const float digit)
     this->fixed_raw = roundf(digit * (1 << fract));
 }
 float Fixed :: toFloat(void) const{
-    return((float)this->fixed_raw / (1 << fract)); 
+    return((float)(this->fixed_raw / (1 << fract))); 
 }
 int Fixed :: toInt(void) const {
     return(this->fixed_raw >> fract);
@@ -51,34 +51,34 @@ std :: ostream &operator<<(std :: ostream &os,const Fixed &oobj)
 
 }
 bool Fixed :: operator>(const Fixed &obj)const{
-    return(this->fixed_raw > obj.fixed_raw);
+    return(this->getRawBits() > obj.getRawBits());
 }
 bool Fixed :: operator<(const Fixed &obj)const{
-    return(this->fixed_raw < obj.fixed_raw);
+    return(this->getRawBits() < obj.getRawBits());
 }
 bool Fixed :: operator<=(const Fixed &obj)const{
-    return(this->fixed_raw <= obj.fixed_raw);
+   return(this->getRawBits() <= obj.getRawBits());
 }
 bool Fixed :: operator>=(const Fixed &obj)const{
-    return(this->fixed_raw >= obj.fixed_raw);
+    return(this->getRawBits() >= obj.getRawBits());
 }
 bool Fixed :: operator==(const Fixed &obj)const{
-    return(this->fixed_raw == obj.fixed_raw);
+    return(this->getRawBits() == obj.getRawBits());
 }
 bool Fixed :: operator!=(const Fixed &obj)const{
-    return(this->fixed_raw != obj.fixed_raw);
+    return(this->getRawBits() != obj.getRawBits());
 }
 Fixed Fixed :: operator+(const Fixed &obj)const{
-    return(this->fixed_raw + obj.fixed_raw);
+    return(this->toFloat() + obj.toFloat());
 }
-Fixed Fixed :: operator-(const Fixed &obj)const{
-    return(this->fixed_raw - obj.fixed_raw);
+Fixed Fixed :: operator - (const Fixed &obj)const{
+    return(this->toFloat() - obj.toFloat());
 }
-Fixed Fixed :: operator*(const Fixed &obj)const{
+Fixed Fixed :: operator * (const Fixed &obj)const{
     return(this->toFloat() * obj.toFloat());
 }
 Fixed Fixed :: operator/(const Fixed &obj)const{
-    return(this->fixed_raw / obj.fixed_raw);
+    return(this->toFloat() / obj.toFloat());
 }
 Fixed &Fixed :: operator++()
 {
