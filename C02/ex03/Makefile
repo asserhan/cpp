@@ -2,7 +2,7 @@ NAME = ex03
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC =  Fixed.cpp Point.cpp main.cpp
+SRC =  Fixed.cpp Point.cpp bsp.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 

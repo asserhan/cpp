@@ -17,8 +17,10 @@ class Point{
     Point &operator=(const Point &oobj);
     //default destructor
     ~Point();
+    //getters
     Fixed getX()const;
     Fixed getY()const;
 
 };
+bool bsp( Point const a, Point const b,Point const c, Point const point);
 #endif
