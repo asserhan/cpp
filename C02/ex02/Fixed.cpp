@@ -38,7 +38,7 @@ Fixed :: Fixed(const float digit)
     this->fixed_raw = roundf(digit * (1 << fract));
 }
 float Fixed :: toFloat(void) const{
-    return((float)(this->fixed_raw / (1 << fract))); 
+    return((float)this->fixed_raw / (1 << fract)); 
 }
 int Fixed :: toInt(void) const {
     return(this->fixed_raw >> fract);
@@ -51,34 +51,34 @@ std :: ostream &operator<<(std :: ostream &os,const Fixed &oobj)
 
 }
 bool Fixed :: operator>(const Fixed &obj)const{
-    return(this->getRawBits() > obj.getRawBits());
+    return(this->fixed_raw > obj.fixed_raw);
 }
 bool Fixed :: operator<(const Fixed &obj)const{
-    return(this->getRawBits() < obj.getRawBits());
+    return(this->fixed_raw < obj.fixed_raw);
 }
 bool Fixed :: operator<=(const Fixed &obj)const{
-   return(this->getRawBits() <= obj.getRawBits());
+    return(this->fixed_raw <= obj.fixed_raw);
 }
 bool Fixed :: operator>=(const Fixed &obj)const{
-    return(this->getRawBits() >= obj.getRawBits());
+    return(this->fixed_raw >= obj.fixed_raw);
 }
 bool Fixed :: operator==(const Fixed &obj)const{
-    return(this->getRawBits() == obj.getRawBits());
+    return(this->fixed_raw == obj.fixed_raw);
 }
 bool Fixed :: operator!=(const Fixed &obj)const{
-    return(this->getRawBits() != obj.getRawBits());
+    return(this->fixed_raw != obj.fixed_raw);
 }
 Fixed Fixed :: operator+(const Fixed &obj)const{
-    return(this->toFloat() + obj.toFloat());
+    return(this->fixed_raw + obj.fixed_raw);
 }
-Fixed Fixed :: operator - (const Fixed &obj)const{
-    return(this->toFloat() - obj.toFloat());
+Fixed Fixed :: operator-(const Fixed &obj)const{
+    return(this->fixed_raw - obj.fixed_raw);
 }
-Fixed Fixed :: operator * (const Fixed &obj)const{
+Fixed Fixed :: operator*(const Fixed &obj)const{
     return(this->toFloat() * obj.toFloat());
 }
 Fixed Fixed :: operator/(const Fixed &obj)const{
-    return(this->toFloat() / obj.toFloat());
+    return(this->fixed_raw / obj.fixed_raw);
 }
 Fixed &Fixed :: operator++()
 {
@@ -126,6 +126,5 @@ Fixed &Fixed :: max_Fixed(Fixed &o1,Fixed &o2){
     else
         return(o2);
 }
-
 
 
