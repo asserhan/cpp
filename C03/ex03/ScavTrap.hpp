@@ -2,7 +2,7 @@
 #define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap{
+class ScavTrap : virtual public ClapTrap{
     public :
     ScavTrap();
     ScavTrap(const ScavTrap &oobj);
@@ -11,8 +11,6 @@ class ScavTrap : public ClapTrap{
     ~ScavTrap();
     void attack(const std::string& target);
     void guardGate();
-    //getters
-    unsigned int getDpoint() const;
 
 
 };

@@ -61,3 +61,6 @@ unsigned int  ClapTrap :: getEpoint() const{
 unsigned int ClapTrap :: getHpoint() const{
     return(this->Hit_point);
 }
+unsigned int ClapTrap :: getDpoint() const{
+    return(this->Attack_damage);
+}

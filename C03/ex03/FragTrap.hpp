@@ -2,7 +2,7 @@
 #define FRAGTRAP_HPP
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap{
+class FragTrap : virtual public ClapTrap{
     public :
     FragTrap();
     FragTrap(const FragTrap &oobj);
@@ -11,9 +11,6 @@ class FragTrap : public ClapTrap{
     ~FragTrap();
     void attack(const std::string& target);
     void highFivesGuys(void);
-    //getters
-    unsigned int getDpoint() const;
-
 
 };
 #endif

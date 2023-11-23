@@ -39,7 +39,3 @@ void ScavTrap :: guardGate()
 {
     std::cout<<"ScavTrap is in Gate keeper mode"<<std::endl;
 }
-
-unsigned int ScavTrap :: getDpoint() const{
-    return(this->Attack_damage);
-}

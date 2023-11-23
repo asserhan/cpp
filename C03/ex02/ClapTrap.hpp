@@ -22,6 +22,7 @@ class ClapTrap{
     //getters
     unsigned int getEpoint() const;
     unsigned int getHpoint() const;
+    unsigned int getDpoint() const;
     
 };
 #endif

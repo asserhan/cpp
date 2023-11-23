@@ -11,8 +11,6 @@ class FragTrap : public ClapTrap{
     ~FragTrap();
     void attack(const std::string& target);
     void highFivesGuys(void);
-    //getters
-    unsigned int getDpoint() const;
 
 
 };
