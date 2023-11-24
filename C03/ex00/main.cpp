@@ -15,7 +15,7 @@ int main(){
     b.takeDamage(100);
     std :: cout << b.getHpoint() << std::endl;
     a.takeDamage(100);
-    a.takeDamage(0);
+    a.takeDamage(0); 
 
 }
    

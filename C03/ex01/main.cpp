@@ -1,6 +1,7 @@
 #include "ScavTrap.hpp"
 
 int main(){
+    
     ScavTrap a("player1");
     ScavTrap b("player2");
     ScavTrap c(a);

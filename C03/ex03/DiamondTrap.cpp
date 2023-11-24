@@ -20,9 +20,9 @@ DiamondTrap &DiamondTrap :: operator=(const DiamondTrap &oobj){
 DiamondTrap :: DiamondTrap(std :: string name) : ClapTrap(name + "_clap_name"),FragTrap(name),ScavTrap(name){
     std::cout<<"DiamondTrap Parametrised constructor called"<<std::endl;
     this->Name = name;
-    this->Hit_point = 100;
-    this->Energy_point = 50;
-    this->Attack_damage = 30;
+    this->Hit_point = FragTrap::Hit_point;
+    this->Energy_point = ScavTrap::Energy_point;
+    this->Attack_damage = FragTrap::Attack_damage;
 }
 
 void DiamondTrap :: whoAmI(){
