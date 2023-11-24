@@ -15,5 +15,8 @@ class DiamondTrap :public FragTrap,public ScavTrap{
     DiamondTrap &operator=(const DiamondTrap &oobj);
     void whoAmI();
 
+    void attack(const std::string& target);
+
+
 };
 #endif

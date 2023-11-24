@@ -29,3 +29,6 @@ void DiamondTrap :: whoAmI(){
     std::cout<<"DiamondTrap name is "<< Name << std::endl;
     std::cout<<"ClapTrap name is "<< ClapTrap::Name << std::endl;
 }
+void DiamondTrap :: attack(const std::string& target){
+    ScavTrap::attack(target);
+}

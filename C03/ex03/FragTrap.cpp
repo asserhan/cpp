@@ -38,3 +38,4 @@ void FragTrap :: attack(const std::string& target){
 void FragTrap :: highFivesGuys(void){
     std::cout<<"High five players"<<std::endl;
 }
+
