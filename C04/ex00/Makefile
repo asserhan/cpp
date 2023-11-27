@@ -1,17 +1,17 @@
-NAME = DiamondTrap
+NAME = animal
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC =  ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
+SRC =  Animal.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ) ClapTrap.hpp  ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+$(NAME): $(OBJ) Animal.hpp
 	$(CC) $(FLAGS) $(OBJ) -o $@ 
 
-$(OBJ_DIR)/%.o: %.cpp ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+$(OBJ_DIR)/%.o: %.cpp Animal.hpp
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -c $< -o $@
 
