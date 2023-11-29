@@ -11,5 +11,8 @@ class   Animal{
     Animal(const Animal &oobj);
     Animal &operator=(const Animal &oobj);
     std::string getType()const;
+    void setType(std ::string type);
+    virtual void makeSound()const;
+
 };
 #endif

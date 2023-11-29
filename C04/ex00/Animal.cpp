@@ -1,7 +1,8 @@
 #include "Animal.hpp"
 
-Animal :: Animal():type("animal"){
+Animal :: Animal(){
     std::cout<<"Animal Default constructor"<<std::endl;
+    setType("Animal");
 }
 Animal ::~Animal(){
     std::cout<<"Animal Default destructor"<<std::endl;
@@ -18,4 +19,10 @@ Animal &Animal :: operator=(const Animal &oobj) {
 }
 std::string Animal :: getType()const{
     return(this->type);
+}
+void Animal :: setType(std ::string type){
+    this->type = type;
+}
+void   Animal :: makeSound()const{
+    std::cout <<"Animal sound"<<std::endl;
 }
