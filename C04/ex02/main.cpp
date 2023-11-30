@@ -23,8 +23,6 @@ int main(int ac,char *argv[])
            meta[i]->makeSound();
            delete meta[i];
        }
-
-
     }
     else 
     {
