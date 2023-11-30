@@ -14,6 +14,7 @@ int main(int ac,char *argv[])
     {
        const Animal *j = new Dog();
         const Animal *i = new Cat(); 
+        //const Animal k;
         delete j;
        delete i;
        Animal *meta[6] = {new Dog(),new Cat(),new Dog(),new Cat(),new Dog(),new Cat()};

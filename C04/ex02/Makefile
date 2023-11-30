@@ -1,4 +1,4 @@
-NAME = brain
+NAME = abstract
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
