@@ -1,17 +1,17 @@
-NAME = animal
+NAME = brain
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC =  Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
+SRC =  Animal.cpp Cat.cpp Dog.cpp Brain.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+$(NAME): $(OBJ) Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 	$(CC) $(FLAGS) $(OBJ) -o $@ 
 
-$(OBJ_DIR)/%.o: %.cpp Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+$(OBJ_DIR)/%.o: %.cpp Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -c $< -o $@
 
