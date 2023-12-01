@@ -3,6 +3,8 @@
 # include <iostream>
 # include "AMateria.hpp"
 
+//forward declaration for AMateria
+class AMateria;
 class ICharacter
 {
     public:

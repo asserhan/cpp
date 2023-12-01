@@ -1,17 +1,23 @@
-NAME = abstract
+NAME = AMateria
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC =  Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp main.cpp
+SRC =  AMateria.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		Character.cpp \
+		MateriaSource.cpp \
+		main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
+HEADERS = AMateria.hpp Cure.hpp Ice.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Animal.hpp Cat.hpp Dog.hpp Brain.hpp WrongAnimal.hpp WrongCat.hpp
+$(NAME): $(OBJ) $(HEADERS)
 	$(CC) $(FLAGS) $(OBJ) -o $@ 
 
-$(OBJ_DIR)/%.o: %.cpp Animal.hpp Cat.hpp Dog.hpp Brain.hpp WrongAnimal.hpp WrongCat.hpp
+$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -c $< -o $@
 
