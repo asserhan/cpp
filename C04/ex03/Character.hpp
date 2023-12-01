@@ -12,13 +12,14 @@ class Character : public ICharacter
     public:
         Character();
         ~Character();
-        Character(const Character &oobj);
-        Character &operator=(const Character &oobj);
+        Character(Character const &oobj);
+        Character &operator=(Character const &oobj);
         Character(std::string const & name);
         std::string const & getName() const;
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);
+        void deleteinventory();
     
 };
 #endif

@@ -7,9 +7,9 @@ class Cure :public AMateria
     public:
         Cure();
         ~Cure();
-        Cure(const Cure &oobj);
-        Cure &operator=(const Cure &oobj);
-        virtual AMateria* clone() const;
-        virtual void use(ICharacter& target);
+        Cure(Cure const &oobj);
+        Cure &operator=(Cure const &oobj);
+        AMateria* clone() const;
+        void use(ICharacter& target);
 };
 #endif

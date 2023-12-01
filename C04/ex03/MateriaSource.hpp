@@ -9,9 +9,10 @@ class MateriaSource : public IMateriaSource
     public:
         MateriaSource();
         ~MateriaSource();
-        MateriaSource(const MateriaSource &oobj);
-        MateriaSource &operator=(const MateriaSource &oobj);
-        virtual void learnMateria(AMateria*);
-        virtual AMateria* createMateria(std::string const & type);
+        MateriaSource(MateriaSource const &oobj);
+        MateriaSource &operator=( MateriaSource const &oobj);
+        void learnMateria(AMateria*);
+        AMateria* createMateria(std::string const & type);
+        void deletemateria();
 };
 #endif

@@ -7,8 +7,8 @@ class Ice :public AMateria
     public:
         Ice();
         ~Ice();
-        Ice(const Ice &oobj);
-        Ice &operator=(const Ice &oobj);
+        Ice(Ice const &oobj);
+        Ice &operator=(Ice const &oobj);
         virtual AMateria* clone() const;
         virtual void use(ICharacter& target);
 };

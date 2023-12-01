@@ -1,19 +1,19 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria() : type("AMateria") {
+AMateria::AMateria() : type("default") {
     std::cout<<"AMateria Default constructor"<<std::endl;
 }
 AMateria::AMateria(std::string const & type) : type(type) {
-    std::cout<<"AMateria Default constructor"<<std::endl;
+    std::cout<<"AMateria "<< this->type << " is created " << std::endl;
 }
 AMateria::~AMateria(){
     std::cout<<"AMateria Default destructor"<<std::endl;
 }
-AMateria::AMateria(const AMateria &oobj){
+AMateria::AMateria(AMateria const &oobj){
     std::cout<<"AMateria copy constructor"<<std::endl;
     (*this) = oobj;
 }
-AMateria &AMateria::operator=(const AMateria &oobj) {
+AMateria &AMateria::operator=(AMateria const &oobj) {
     std::cout<<"AMateria copy assignment operator"<<std::endl;
     this->type =oobj.type;
     return(*this);
@@ -23,5 +23,5 @@ std::string const & AMateria::getType() const{
 }
 
 void AMateria::use(ICharacter& target){
-    std::cout << " AMateria "<< this->type << " used "<< target.getName() << std::endl; 
+    std::cout << " AMateria "<< this->type << " used against "<< target.getName() << std::endl; 
 }
