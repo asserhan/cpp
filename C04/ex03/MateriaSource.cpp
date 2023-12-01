@@ -57,10 +57,8 @@ void MateriaSource :: learnMateria(AMateria *_materia) {
 AMateria *MateriaSource :: createMateria(std::string const &type) {
     for (int i = 0; i < 4; i++)
     {
-        std :: cout << this->materia[i] << std::endl;
       if(this->materia[i] && this->materia[i]->getType() == type)
       {
-        std :: cout << i << type << std::endl;
         std::cout <<" MateriaSource created "<<type<<std::endl;
         return(this->materia[i]->clone());
       }

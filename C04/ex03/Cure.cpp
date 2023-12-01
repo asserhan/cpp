@@ -9,7 +9,6 @@ Cure::~Cure(){
 Cure::Cure(Cure const &oobj) : AMateria("Cure"){
     std::cout<<"Cure copy constructor"<<std::endl;
     this->type = oobj.getType();
-    //(*this) = oobj;
 }
 Cure &Cure::operator=(Cure const &oobj) {
     std::cout<<"Cure copy assignment operator"<<std::endl;

@@ -16,7 +16,16 @@ Character::~Character(){
 }
 Character::Character(Character const &oobj) : name(oobj.getName()){
     std::cout<<"Character copy constructor"<<std::endl;
-    (*this) = oobj;
+    for(int i = 0; i < 4; i++)
+    {
+        if (this->inventory[i] != NULL)
+        {
+            delete this->inventory[i];
+            this->inventory[i] = NULL;
+        }
+
+        this->inventory[i] = oobj.inventory[i]->clone();
+    }
 }
 Character &Character::operator=(Character const &oobj) {
     std::cout<<"Character copy assignment operator"<<std::endl;
