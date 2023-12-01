@@ -14,16 +14,23 @@ Character::~Character(){
     std::cout<<" Character "<<name<<" destroyed "<<std::endl;
     this->deleteinventory();
 }
-Character::Character(Character const &oobj) : name(oobj.name){
+Character::Character(Character const &oobj) : name(oobj.getName()){
     std::cout<<"Character copy constructor"<<std::endl;
     (*this) = oobj;
 }
 Character &Character::operator=(Character const &oobj) {
     std::cout<<"Character copy assignment operator"<<std::endl;
-    this->deleteinventory();
     this->name = oobj.name;
     for(int i = 0; i < 4; i++)
-        this->inventory[i] = oobj.inventory[i];
+    {
+        if (this->inventory[i] != NULL)
+        {
+            delete this->inventory[i];
+            this->inventory[i] = NULL;
+        }
+
+        this->inventory[i] = oobj.inventory[i]->clone();
+    }
     return(*this);
 }
 void Character::equip(AMateria* m){
@@ -44,11 +51,10 @@ void Character::unequip(int idx){
     if(idx >= 0 && idx < 4)
     {
         if (this->inventory[idx] != NULL)
-        {
-            std::cout <<" Character "<<this->name<<" unequiped "<<std::endl;
-            this->inventory[idx] = NULL;
-            return;
-        }
+            delete this->inventory[idx];
+        std::cout <<" Character "<<this->name<<" unequiped "<<std::endl;
+        this->inventory[idx] = NULL;
+        return;
     }
     std :: cout << " Character "<<this->name<<" inventory is empty or wrong index"<<std::endl;
 }

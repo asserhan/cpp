@@ -8,11 +8,12 @@ Ice::~Ice(){
 }
 Ice::Ice(Ice const &oobj) : AMateria("ice"){
     std::cout<<"Ice copy constructor"<<std::endl;
-    (*this) = oobj;
+    this->type = oobj.getType();
+    //(*this) = oobj;
 }
 Ice &Ice::operator=(Ice const &oobj) {
     std::cout<<"Ice copy assignment operator"<<std::endl;
-    this->type =oobj.type;
+    this->type =oobj.getType();
     return(*this);
 }
 AMateria* Ice::clone() const{

@@ -1,6 +1,6 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("Cure"){
+Cure::Cure() : AMateria("cure"){
    std::cout<<"Cure Default constructor"<<std::endl;
 }
 Cure::~Cure(){
@@ -8,11 +8,12 @@ Cure::~Cure(){
 }
 Cure::Cure(Cure const &oobj) : AMateria("Cure"){
     std::cout<<"Cure copy constructor"<<std::endl;
-    (*this) = oobj;
+    this->type = oobj.getType();
+    //(*this) = oobj;
 }
 Cure &Cure::operator=(Cure const &oobj) {
     std::cout<<"Cure copy assignment operator"<<std::endl;
-    this->type =oobj.type;
+    this->type =oobj.getType();
     return(*this);
 }
 AMateria* Cure::clone() const{

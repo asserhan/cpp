@@ -13,14 +13,28 @@ MateriaSource::~MateriaSource() {
 
 MateriaSource::MateriaSource(MateriaSource const &oobj) {
     std::cout<<"MateriaSource copy constructor"<<std::endl;
-    (*this) = oobj;
+     for(int i = 0; i < 4; i++)
+    {
+        if (this->materia[i] != NULL)
+        {
+            delete this->materia[i];
+            this->materia[i] = NULL;
+        }
+        this->materia[i] = oobj.materia[i]->clone();
+    }
 }
 
 MateriaSource &MateriaSource::operator=(MateriaSource const &oobj) {
     std::cout<<"MateriaSource copy assignment operator"<<std::endl;
-    this->deletemateria();
     for(int i = 0; i < 4; i++)
-        this->materia[i] = oobj.materia[i];
+    {
+        if (this->materia[i] != NULL)
+        {
+            delete this->materia[i];
+            this->materia[i] = NULL;
+        }
+        this->materia[i] = oobj.materia[i]->clone();
+    }
     return(*this);
 }
 
@@ -37,15 +51,16 @@ void MateriaSource :: learnMateria(AMateria *_materia) {
         }
     }
     std::cout << "  MateriaSource can't learned " << _materia->getType() << std::endl;
-    delete _materia;
     return;
 }
 
 AMateria *MateriaSource :: createMateria(std::string const &type) {
     for (int i = 0; i < 4; i++)
     {
-      if(this->materia[i] != NULL && this->materia[i]->getType() == type)
+        std :: cout << this->materia[i] << std::endl;
+      if(this->materia[i] && this->materia[i]->getType() == type)
       {
+        std :: cout << i << type << std::endl;
         std::cout <<" MateriaSource created "<<type<<std::endl;
         return(this->materia[i]->clone());
       }
