@@ -1,21 +1,21 @@
 #include "Character.hpp"
 
 Character::Character() :name("Default"){
-    std::cout<<"Character Default constructor"<<std::endl;
+    //std::cout<<"Character Default constructor"<<std::endl;
     for (int i = 0; i < 4; i++)
         this->inventory[i] = NULL;
 }
 Character::Character(std::string const & name) : name(name) {
-    std::cout<<" Character "<<name<<" created "<<std::endl;
+    //std::cout<<" Character "<<name<<" created "<<std::endl;
     for (int i = 0; i < 4; i++)
         this->inventory[i] = NULL;
 }
 Character::~Character(){
-    std::cout<<" Character "<<name<<" destroyed "<<std::endl;
+   // std::cout<<" Character "<<name<<" destroyed "<<std::endl;
     this->deleteinventory();
 }
 Character::Character(Character const &oobj) : name(oobj.getName()){
-    std::cout<<"Character copy constructor"<<std::endl;
+   // std::cout<<"Character copy constructor"<<std::endl;
     for(int i = 0; i < 4; i++)
     {
         if (this->inventory[i] != NULL)
@@ -28,7 +28,7 @@ Character::Character(Character const &oobj) : name(oobj.getName()){
     }
 }
 Character &Character::operator=(Character const &oobj) {
-    std::cout<<"Character copy assignment operator"<<std::endl;
+    //std::cout<<"Character copy assignment operator"<<std::endl;
     this->name = oobj.name;
     for(int i = 0; i < 4; i++)
     {
@@ -50,7 +50,7 @@ void Character::equip(AMateria* m){
         if (this->inventory[i] == NULL)
         {
             this->inventory[i] = m;
-            std::cout <<" Character "<<this->name<<" equiped with "<<m->getType()<<std::endl;
+           // std::cout <<" Character "<<this->name<<" equiped with "<<m->getType()<<std::endl;
             return;
         }
     }
@@ -72,7 +72,7 @@ void Character::use(int idx, ICharacter& target){
     {
         if (this->inventory[idx] != NULL)
         {
-            std::cout <<" Character "<<this->name<<" used "<<std::endl;
+            //std::cout <<" Character "<<this->name<<" used "<<std::endl;
             this->inventory[idx]->use(target);
             return;
         }

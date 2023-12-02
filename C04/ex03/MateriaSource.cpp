@@ -1,18 +1,18 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource() {
-    std::cout<<"MateriaSource Default constructor"<<std::endl;
+    //std::cout<<"MateriaSource Default constructor"<<std::endl;
     for (int i = 0; i < 4; i++)
         this->materia[i] = NULL;
 }
 
 MateriaSource::~MateriaSource() {
-    std::cout<<"MateriaSource Default destructor"<<std::endl;
+    //std::cout<<"MateriaSource Default destructor"<<std::endl;
     this->deletemateria();
 }
 
 MateriaSource::MateriaSource(MateriaSource const &oobj) {
-    std::cout<<"MateriaSource copy constructor"<<std::endl;
+    //std::cout<<"MateriaSource copy constructor"<<std::endl;
      for(int i = 0; i < 4; i++)
     {
         if (this->materia[i] != NULL)
@@ -25,7 +25,7 @@ MateriaSource::MateriaSource(MateriaSource const &oobj) {
 }
 
 MateriaSource &MateriaSource::operator=(MateriaSource const &oobj) {
-    std::cout<<"MateriaSource copy assignment operator"<<std::endl;
+    //std::cout<<"MateriaSource copy assignment operator"<<std::endl;
     for(int i = 0; i < 4; i++)
     {
         if (this->materia[i] != NULL)
@@ -45,7 +45,7 @@ void MateriaSource :: learnMateria(AMateria *_materia) {
     {
         if (this->materia[i] == NULL)
         {
-            std::cout <<" MateriaSource learned "<<_materia->getType()<<std::endl;
+           // std::cout <<" MateriaSource learned "<<_materia->getType()<<std::endl;
             this->materia[i] = _materia;
             return;
         }
@@ -59,7 +59,7 @@ AMateria *MateriaSource :: createMateria(std::string const &type) {
     {
       if(this->materia[i] && this->materia[i]->getType() == type)
       {
-        std::cout <<" MateriaSource created "<<type<<std::endl;
+        //std::cout <<" MateriaSource created "<<type<<std::endl;
         return(this->materia[i]->clone());
       }
     }

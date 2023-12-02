@@ -2,20 +2,20 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-void ff(void)
-{
-    system("leaks  brain");
-}
+
 int main(int ac,char *argv[])
 {
     (void) argv;
-        atexit(ff);
     if(ac == 1)
     {
        const Animal *j = new Dog();
         const Animal *i = new Cat(); 
         delete j;
        delete i;
+       Dog basic;
+       {
+            Dog tmp = basic;
+       }
        Animal *meta[6] = {new Dog(),new Cat(),new Dog(),new Cat(),new Dog(),new Cat()};
        for(int i = 0; i < 6; i++)
        {
