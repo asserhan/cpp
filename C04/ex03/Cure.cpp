@@ -6,7 +6,7 @@ Cure::Cure() : AMateria("cure"){
 Cure::~Cure(){
    // std::cout<<"Cure Default destructor"<<std::endl;
 }
-Cure::Cure(Cure const &oobj) : AMateria("Cure"){
+Cure::Cure(Cure const &oobj) : AMateria("cure"){
    // std::cout<<"Cure copy constructor"<<std::endl;
     this->type = oobj.getType();
 }
@@ -20,5 +20,5 @@ AMateria* Cure::clone() const{
     return(tmp);
 }
 void Cure::use(ICharacter& target){
-    std::cout << "* heals "<< target.getName() <<"’s wounds *"<<std::endl;
+    std::cout << "* heals "<< target.getName() <<"'s wounds *"<<std::endl;
 }
