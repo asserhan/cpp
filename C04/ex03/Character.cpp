@@ -19,10 +19,8 @@ Character::Character(Character const &oobj) : name(oobj.getName()){
     for(int i = 0; i < 4; i++)
     {
         if (this->inventory[i] != NULL)
-        {
-            delete this->inventory[i];
             this->inventory[i] = NULL;
-        }
+        
 
         this->inventory[i] = oobj.inventory[i]->clone();
     }
