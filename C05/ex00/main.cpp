@@ -8,8 +8,8 @@ int main(int ac,char *av[])
             Bureaucrat bu("diplomat", 1);
             bu.Increment();
             std::cout << bu.getGrade() << std::endl;
-            bu.Decrement();
-            std::cout << bu.getGrade() << std::endl;
+            // bu.Decrement();
+            // std::cout << bu.getGrade() << std::endl;
 
         }
         catch(std::exception &e){

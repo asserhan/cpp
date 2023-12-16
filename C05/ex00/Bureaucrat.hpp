@@ -10,8 +10,8 @@ class Bureaucrat{
     public:
     Bureaucrat();
     Bureaucrat(std::string name, int grade);
-    Bureaucrat(const Bureaucrat &copy);
-    Bureaucrat &operator=(const Bureaucrat &copy);
+    Bureaucrat(const Bureaucrat &oobj);
+    Bureaucrat &operator=(const Bureaucrat &oobj);
     ~Bureaucrat();
     //Exception classes
     class GradeTooHighExeption : public std::exception{
