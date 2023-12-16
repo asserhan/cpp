@@ -47,11 +47,9 @@ std :: ostream &operator<<(std :: ostream &os,const Bureaucrat &oobj){
     return(os);
 }
 void Bureaucrat :: signForm(Form &form){
-    try{
-        form.beSigned(*this);
-        std::cout << this->getName() << " signs " << form.getName() << std::endl;
-    }
-    catch(std::exception &e){
-        std::cout << this->getName() << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
-    }
+   if(form.getSigned() == true)
+        std::cout<<this->_name<<" signed "<< form.getName() <<std::endl;
+    else
+        std::cout<<this->_name<<" cannot sign "<< form.getName() <<" because "<<this->_name<<"'s grade is too low"<<std::endl;
+
 }

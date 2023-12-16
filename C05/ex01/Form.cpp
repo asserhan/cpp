@@ -2,7 +2,7 @@
 Form::Form() : _name("default"), _signed(false), _gradeSign(150), _gradeExec(150) {
     //std::cout << "Form default constructor called" << std::endl;
 }
-Form:: Form(std::string name, const int gradeToSign, const int gradeToExecute) : _name(name),_gradeExec(gradeToExecute),_gradeSign(gradeToSign){
+Form:: Form(std::string name, const int gradeToSign, const int gradeToExecute) : _name(name),_gradeSign(gradeToSign),_gradeExec(gradeToExecute){
     //std::cout << "Form constructor called" << std::endl;
     if(gradeToSign < 1 || gradeToExecute < 1)
         throw Form:: GradeTooHighExeption();
@@ -12,7 +12,7 @@ Form:: Form(std::string name, const int gradeToSign, const int gradeToExecute) :
         _signed = false;
 }
 
-Form :: Form(const Form &oobj):_gradeExec(oobj._gradeExec),_gradeSign(oobj._gradeSign){
+Form :: Form(const Form &oobj):_gradeSign(oobj._gradeSign),_gradeExec(oobj._gradeExec){
     std::cout << "Form copy constructor called" << std::endl;
     (*this) = oobj;
 }
@@ -21,22 +21,25 @@ Form &Form :: operator=(const Form &oobj){
     this->_signed = oobj.getSigned();
     return(*this);
 }
+Form:: ~Form(){
+   // std::cout << "Form destructor called" << std::endl;
+}
 const std::string Form :: getName()const{
     return(this->_name);
 }
-const int Form :: getGradeToSign()const{
+int Form :: getGradeToSign()const{
     return(this->_gradeSign);
 }
-const int Form :: getGradeToExecute()const{
+int Form :: getGradeToExecute()const{
     return(this->_gradeExec);
 }
 bool Form :: getSigned()const{
     return(this->_signed);
 }
 std :: ostream &operator<<(std :: ostream &os,const Form &oobj){
-    os << oobj.getName() << ", bureaucrat grade to execute is " << oobj.getGradeToExecute() << std::endl;
-    os << oobj.getName() << ", bureaucrat grade to sign is " << oobj.getGradeToSign() << std::endl;
-    os << oobj.getName() << ", bureaucrat is signed " << oobj.getSigned() << std::endl;
+    os << oobj.getName() << " grade to execute is " << oobj.getGradeToExecute() << std::endl;
+    os << oobj.getName() << " grade to sign is " << oobj.getGradeToSign() << std::endl;
+    os << oobj.getName() << " signed is " << oobj.getSigned() << std::endl;
     return(os);
 }
 void Form :: beSigned(Bureaucrat &bureaucrat){

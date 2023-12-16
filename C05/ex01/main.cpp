@@ -11,6 +11,7 @@ int main(int ac,char *av[])
             Form form("form", 1, 1);
             std::cout << form;
             bu.signForm(form);
+            bu.Decrement();
             std::cout << form;
         }
         catch(std::exception &e){

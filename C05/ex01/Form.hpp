@@ -2,6 +2,7 @@
 #define FORM_HPP
 #include <iostream>
 #include "Bureaucrat.hpp"
+class Bureaucrat;
 class Form{
     private:
         const std::string _name;
@@ -17,8 +18,8 @@ class Form{
     //getters
     const std::string getName()const;
     bool getSigned()const;
-    const int getGradeToSign()const;
-    const int getGradeToExecute()const;
+    int getGradeToSign()const;
+    int getGradeToExecute()const;
 
     //Exception classes
     class GradeTooHighExeption : public std::exception{
