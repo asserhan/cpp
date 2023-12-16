@@ -15,16 +15,21 @@ class Bureaucrat{
     ~Bureaucrat();
     //Exception classes
     class GradeTooHighExeption : public std::exception{
+        public:
         virtual const char * what() const throw(){
             return "Grade too Hight";
         }
     };
     class GradeTooLowExeption : public std::exception{
+        public:
         virtual const char * what() const throw(){
             return "Grade Too low";
         }
     };
+    //getters
     const std::string getName()const;
     int getGrade() const;
+    void Increment();
+    void Decrement();
 };
 #endif

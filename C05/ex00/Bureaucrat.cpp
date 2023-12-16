@@ -18,3 +18,15 @@ const std::string  Bureaucrat :: getName()const{
 int Bureaucrat :: getGrade()const{
     return(this->_grade);
 }
+void Bureaucrat :: Increment(){
+    if(this->_grade == 1)
+        throw Bureaucrat :: GradeTooHighExeption();
+    else
+        this->_grade--;
+}
+void Bureaucrat :: Decrement(){
+    if(this->_grade == 150)
+        throw Bureaucrat :: GradeTooLowExeption();
+    else
+        this->_grade++;
+}

@@ -1,16 +1,11 @@
-NAME = AMateria
+NAME = Bureaucrat
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC =  AMateria.cpp \
-		Cure.cpp \
-		Ice.cpp \
-		Character.cpp \
-		MateriaSource.cpp \
-		main.cpp
+SRC = Bureaucrat.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
-HEADERS = AMateria.hpp Cure.hpp Ice.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
+HEADERS = Bureaucrat.hpp
 
 all: $(NAME)
 
