@@ -1,6 +1,7 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 #include <iostream>
+#include "Bureaucrat.hpp"
 class Form{
     private:
         const std::string _name;
@@ -32,6 +33,7 @@ class Form{
             return "Grade Too low";
         }
     };
+    void beSigned(Bureaucrat &bureaucrat);
 
 };
 std :: ostream &operator<<(std :: ostream &os,const Form &oobj);

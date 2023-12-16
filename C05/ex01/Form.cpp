@@ -36,5 +36,12 @@ bool Form :: getSigned()const{
 std :: ostream &operator<<(std :: ostream &os,const Form &oobj){
     os << oobj.getName() << ", bureaucrat grade to execute is " << oobj.getGradeToExecute() << std::endl;
     os << oobj.getName() << ", bureaucrat grade to sign is " << oobj.getGradeToSign() << std::endl;
+    os << oobj.getName() << ", bureaucrat is signed " << oobj.getSigned() << std::endl;
     return(os);
+}
+void Form :: beSigned(Bureaucrat &bureaucrat){
+    if(bureaucrat.getGrade() < this->_gradeSign)
+        throw Form :: GradeTooLowExeption();
+    else
+        this->_signed = true;
 }

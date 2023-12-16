@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 int main(int ac,char *av[])
 {
     (void)av;
@@ -7,11 +8,10 @@ int main(int ac,char *av[])
         try{
             Bureaucrat bu("diplomat", 1);
             std::cout << bu;
-            bu.Increment();
-            std::cout << bu.getGrade() << std::endl;
-            // bu.Decrement();
-            // std::cout << bu.getGrade() << std::endl;
-
+            Form form("form", 1, 1);
+            std::cout << form;
+            bu.signForm(form);
+            std::cout << form;
         }
         catch(std::exception &e){
             std::cout << e.what() << std::endl;
