@@ -17,7 +17,7 @@ Form :: Form(const Form &oobj):_gradeExec(oobj._gradeExec),_gradeSign(oobj._grad
     (*this) = oobj;
 }
 Form &Form :: operator=(const Form &oobj){
-    std::cout << "Form copy assignment operator" << std::endl;
+    std::cout << "Form copy assignment operator called " << std::endl;
     this->_signed = oobj.getSigned();
     return(*this);
 }
@@ -32,4 +32,9 @@ const int Form :: getGradeToExecute()const{
 }
 bool Form :: getSigned()const{
     return(this->_signed);
+}
+std :: ostream &operator<<(std :: ostream &os,const Form &oobj){
+    os << oobj.getName() << ", bureaucrat grade to execute is " << oobj.getGradeToExecute() << std::endl;
+    os << oobj.getName() << ", bureaucrat grade to sign is " << oobj.getGradeToSign() << std::endl;
+    return(os);
 }
