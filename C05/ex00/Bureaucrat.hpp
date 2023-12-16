@@ -32,4 +32,5 @@ class Bureaucrat{
     void Increment();
     void Decrement();
 };
+std :: ostream &operator<<(std :: ostream &os,const Bureaucrat &oobj);
 #endif

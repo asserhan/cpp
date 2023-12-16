@@ -6,6 +6,7 @@ int main(int ac,char *av[])
     {
         try{
             Bureaucrat bu("diplomat", 1);
+            std::cout << bu;
             bu.Increment();
             std::cout << bu.getGrade() << std::endl;
             // bu.Decrement();

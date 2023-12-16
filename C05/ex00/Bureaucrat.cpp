@@ -1,10 +1,10 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
-    std::cout << "Bureaucrat default constructor called" << std::endl;
+    //std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 Bureaucrat:: Bureaucrat(std::string name,int grade) : _name(name){
-    std::cout << "Bureaucrat constructor called" << std::endl;
+    //std::cout << "Bureaucrat constructor called" << std::endl;
    if(grade < 1)
         throw Bureaucrat:: GradeTooHighExeption();
     else if(grade > 150)
@@ -22,7 +22,7 @@ Bureaucrat & Bureaucrat :: operator=(const Bureaucrat &oobj){
     return(*this);
 }
 Bureaucrat:: ~Bureaucrat(){
-    std::cout << "Bureaucrat destructor called" << std::endl;
+   // std::cout << "Bureaucrat destructor called" << std::endl;
 }
 const std::string  Bureaucrat :: getName()const{
     return(this->_name);
@@ -41,4 +41,8 @@ void Bureaucrat :: Decrement(){
         throw Bureaucrat :: GradeTooLowExeption();
     else
         this->_grade++;
+}
+std :: ostream &operator<<(std :: ostream &os,const Bureaucrat &oobj){
+    os << oobj.getName() << ", bureaucrat grade " << oobj.getGrade() << std::endl;
+    return(os);
 }
