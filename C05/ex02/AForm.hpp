@@ -34,6 +34,12 @@ class AForm{
             return "Grade Too low";
         }
     };
+    class FormNotSignedException : public std::exception{
+        public:
+        virtual const char * what() const throw(){
+            return "Form not signed";
+        }
+    };
     void beSigned(Bureaucrat &bureaucrat);
     virtual void execute(Bureaucrat const &executor) const = 0;
     

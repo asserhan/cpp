@@ -1,6 +1,7 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 #include <iostream>
+#include <fstream>
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm{
@@ -13,6 +14,7 @@ class ShrubberyCreationForm : public AForm{
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &oobj);
         ~ShrubberyCreationForm();
         void execute(Bureaucrat const &executor) const;
-        
+        void createfile(std::string filename)const ;
+
 };
 #endif

@@ -2,8 +2,8 @@
 #define BUREAUCRATE_HPP
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
-class Form;
+#include "AForm.hpp"
+class AForm;
 
 class Bureaucrat{
     private:
@@ -33,7 +33,7 @@ class Bureaucrat{
     int getGrade() const;
     void Increment();
     void Decrement();
-    void signForm(Form &form);
+    void signForm(AForm &form);
 };
 std :: ostream &operator<<(std :: ostream &os,const Bureaucrat &oobj);
 #endif

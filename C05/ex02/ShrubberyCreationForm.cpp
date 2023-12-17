@@ -18,3 +18,31 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm:: ~ShrubberyCreationForm(){
     std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
+void ShrubberyCreationForm::createfile(std::string filename)const {
+    std::ofstream file(filename);
+    if(file.is_open()){
+        file << "        /\\" << std::endl;
+        file << "       /  \\" << std::endl;
+        file << "      /    \\" << std::endl;
+        file << "     /      \\" << std::endl;
+        file << "    /        \\" << std::endl;
+        file << "   /__________\\" << std::endl;
+        file << "        ||        " << std::endl;
+        file << "        ||        " << std::endl;
+        file << "        ||        " << std::endl;
+        file.close();
+    }
+    else 
+        std::cout << "Error opening file" << std::endl;
+
+}
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
+    if(this->getSigned() == false)
+        throw AForm::FormNotSignedException();
+    else if(executor.getGrade() > this->getGradeToExecute())
+        throw AForm::GradeTooLowExeption();
+    else{
+        std::cout << "ShrubberyCreationForm is executed" << std::endl;
+        createfile(_target+ "_shrubbery");
+    }
+}
