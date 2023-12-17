@@ -1,50 +1,50 @@
-#include "Form.hpp"
-Form::Form() : _name("default"), _signed(false), _gradeSign(150), _gradeExec(150) {
-    //std::cout << "Form default constructor called" << std::endl;
+#include "AForm.hpp"
+AForm::AForm() : _name("default"), _signed(false), _gradeSign(150), _gradeExec(150) {
+    //std::cout << "AForm default constructor called" << std::endl;
 }
-Form:: Form(std::string name, const int gradeToSign, const int gradeToExecute) : _name(name),_gradeSign(gradeToSign),_gradeExec(gradeToExecute){
-    //std::cout << "Form constructor called" << std::endl;
+AForm:: AForm(std::string name, const int gradeToSign, const int gradeToExecute) : _name(name),_gradeSign(gradeToSign),_gradeExec(gradeToExecute){
+    //std::cout << "AForm constructor called" << std::endl;
     if(gradeToSign < 1 || gradeToExecute < 1)
-        throw Form:: GradeTooHighExeption();
+        throw AForm:: GradeTooHighExeption();
     else if(gradeToSign > 150 || gradeToExecute > 150)
-        throw Form :: GradeTooLowExeption();
+        throw AForm :: GradeTooLowExeption();
     else 
         _signed = false;
 }
 
-Form :: Form(const Form &oobj):_gradeSign(oobj._gradeSign),_gradeExec(oobj._gradeExec){
-    std::cout << "Form copy constructor called" << std::endl;
+AForm :: AForm(const AForm &oobj):_gradeSign(oobj._gradeSign),_gradeExec(oobj._gradeExec){
+    std::cout << "AForm copy constructor called" << std::endl;
     (*this) = oobj;
 }
-Form &Form :: operator=(const Form &oobj){
-    std::cout << "Form copy assignment operator called " << std::endl;
+AForm &AForm :: operator=(const AForm &oobj){
+    std::cout << "AForm copy assignment operator called " << std::endl;
     this->_signed = oobj.getSigned();
     return(*this);
 }
-Form:: ~Form(){
-   // std::cout << "Form destructor called" << std::endl;
+AForm:: ~AForm(){
+   // std::cout << "AForm destructor called" << std::endl;
 }
-const std::string Form :: getName()const{
+const std::string AForm :: getName()const{
     return(this->_name);
 }
-int Form :: getGradeToSign()const{
+int AForm :: getGradeToSign()const{
     return(this->_gradeSign);
 }
-int Form :: getGradeToExecute()const{
+int AForm :: getGradeToExecute()const{
     return(this->_gradeExec);
 }
-bool Form :: getSigned()const{
+bool AForm :: getSigned()const{
     return(this->_signed);
 }
-std :: ostream &operator<<(std :: ostream &os,const Form &oobj){
+std :: ostream &operator<<(std :: ostream &os,const AForm &oobj){
     os << oobj.getName() << " grade to execute is " << oobj.getGradeToExecute() << std::endl;
     os << oobj.getName() << " grade to sign is " << oobj.getGradeToSign() << std::endl;
     os << oobj.getName() << " signed is " << oobj.getSigned() << std::endl;
     return(os);
 }
-void Form :: beSigned(Bureaucrat &bureaucrat){
+void AForm :: beSigned(Bureaucrat &bureaucrat){
     if(bureaucrat.getGrade() < this->_gradeSign)
-        throw Form :: GradeTooLowExeption();
+        throw AForm :: GradeTooLowExeption();
     else
         this->_signed = true;
 }
