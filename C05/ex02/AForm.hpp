@@ -14,7 +14,7 @@ class AForm{
     AForm(std::string name, const int gradeToSign, const int gradeToExecute);
     AForm(const AForm &oobj);
     AForm &operator=(const AForm &oobj);
-    ~AForm();
+    virtual ~AForm();
     //getters
     const std::string getName()const;
     bool getSigned()const;
