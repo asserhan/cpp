@@ -53,3 +53,12 @@ void Bureaucrat :: signForm(AForm &form){
         std::cout<<this->_name<<" cannot sign "<< form.getName() <<" because "<<this->_name<<"'s grade is too low"<<std::endl;
 
 }
+void Bureaucrat :: executeForm(AForm const &form){
+    try{
+        form.execute(*this);
+        std::cout << this->_name << " executes " << form.getName() << std::endl;
+    }
+    catch(std::exception &e){
+        std::cout << this->_name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
