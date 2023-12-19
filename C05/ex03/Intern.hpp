@@ -15,5 +15,8 @@ class Intern{
     Intern &operator=(const Intern &oobj);
     ~Intern();
     AForm *makeForm(std::string formName, std::string target);
+    AForm *CreateShrubberyCreationForm(std::string target);
+    AForm *CreateRobotomyRequestForm(std::string target);
+    AForm *CreatePresidentialPardonForm(std::string target);
 };
 #endif
