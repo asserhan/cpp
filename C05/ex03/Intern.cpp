@@ -27,7 +27,7 @@ AForm *Intern::CreatePresidentialPardonForm(std::string target){
 AForm *Intern::makeForm(std::string formName, std::string target){
     typedef AForm* (Intern::*formPtr)(std::string target);
     formPtr createforms[3] = {&Intern::CreateShrubberyCreationForm, &Intern::CreateRobotomyRequestForm, &Intern::CreatePresidentialPardonForm};
-    std::string forms[3] = {"shrubberycreation", "robotomyrequest", "presidentialpardon"};
+    std::string forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     for(int i = 0; i < 3; i++){
         if(forms[i] == formName){
             std::cout << "Intern creates " << formName << std::endl;
