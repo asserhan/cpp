@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = form
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj

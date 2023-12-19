@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm():AForm("default",72,45),_target("default"){
+RobotomyRequestForm::RobotomyRequestForm():Form("default",72,45),_target("default"){
     std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
-RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("Robotomy",72,45),_target(target){
+RobotomyRequestForm::RobotomyRequestForm(std::string target):Form("Robotomy",72,45),_target(target){
     std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &oobj):AForm(oobj){
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &oobj):Form(oobj){
     std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
     (*this) = oobj;
 }
@@ -20,9 +20,9 @@ RobotomyRequestForm:: ~RobotomyRequestForm(){
 }
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
     if(this->getSigned() == false)
-        throw AForm::FormNotSignedException();
+        throw Form::FormNotSignedException();
     else if(executor.getGrade() < this->getGradeToExecute())
-        throw AForm::GradeTooLowExeption();
+        throw Form::GradeTooLowExeption();
     else{
         std::cout << "Meaaaaaaw "<< "RobotomyRequestForm is executed" << std::endl;
         if(rand() % 2 == 0)

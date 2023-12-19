@@ -15,17 +15,17 @@ Intern &Intern::operator=(const Intern &oobj){
 Intern:: ~Intern(){
     std::cout << "Intern destructor called" << std::endl;
 }
-AForm *Intern::CreateShrubberyCreationForm(std::string target){
+Form *Intern::CreateShrubberyCreationForm(std::string target){
     return(new ShrubberyCreationForm(target));
 }
-AForm *Intern::CreateRobotomyRequestForm(std::string target){
+Form *Intern::CreateRobotomyRequestForm(std::string target){
     return(new RobotomyRequestForm(target));
 }
-AForm *Intern::CreatePresidentialPardonForm(std::string target){
+Form *Intern::CreatePresidentialPardonForm(std::string target){
     return(new PresidentialPardonForm(target));
 }
-AForm *Intern::makeForm(std::string formName, std::string target){
-    typedef AForm* (Intern::*formPtr)(std::string target);
+Form *Intern::makeForm(std::string formName, std::string target){
+    typedef Form* (Intern::*formPtr)(std::string target);
     formPtr createforms[3] = {&Intern::CreateShrubberyCreationForm, &Intern::CreateRobotomyRequestForm, &Intern::CreatePresidentialPardonForm};
     std::string forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     for(int i = 0; i < 3; i++){

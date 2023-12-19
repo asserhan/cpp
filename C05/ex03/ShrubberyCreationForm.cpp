@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm("default",145,137),_target("default"){
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("default",145,137),_target("default"){
     std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbery",145,137),_target(target){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("Shrubbery",145,137),_target(target){
     std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &oobj):AForm(oobj){
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &oobj):Form(oobj){
     std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
     (*this) = oobj;
 }
@@ -38,9 +38,9 @@ void ShrubberyCreationForm::createfile(std::string filename)const {
 }
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     if(this->getSigned() == false)
-        throw AForm::FormNotSignedException();
+        throw Form::FormNotSignedException();
     else if(executor.getGrade() < this->getGradeToExecute())
-        throw AForm::GradeTooLowExeption();
+        throw Form::GradeTooLowExeption();
     else{
         std::cout << "ShrubberyCreationForm is executed" << std::endl;
         createfile(_target+ "_shrubbery");

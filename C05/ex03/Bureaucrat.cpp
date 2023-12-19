@@ -46,14 +46,14 @@ std :: ostream &operator<<(std :: ostream &os,const Bureaucrat &oobj){
     os << oobj.getName() << ", bureaucrat grade " << oobj.getGrade() << std::endl;
     return(os);
 }
-void Bureaucrat :: signForm(AForm &form){
+void Bureaucrat :: signForm(Form &form){
    if(form.getSigned() == true)
         std::cout<<this->_name<<" signed "<< form.getName() <<std::endl;
     else
         std::cout<<this->_name<<" cannot sign "<< form.getName() <<" because "<<this->_name<<"'s grade is too low"<<std::endl;
 
 }
-void Bureaucrat :: executeForm(AForm const &form){
+void Bureaucrat :: executeForm(Form const &form){
     try{
         form.execute(*this);
         std::cout << this->_name << " executes " << form.getName() << std::endl;
