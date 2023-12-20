@@ -4,7 +4,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
-
 int main(int ac, char **av)
 {
     (void)av;

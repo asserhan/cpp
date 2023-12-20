@@ -39,7 +39,7 @@ void ShrubberyCreationForm::createfile(std::string filename)const {
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     if(this->getSigned() == false)
         throw Form::FormNotSignedException();
-    else if(executor.getGrade() < this->getGradeToExecute())
+    else if(executor.getGrade() > this->getGradeToExecute())
         throw Form::GradeTooLowExeption();
     else{
         std::cout << "ShrubberyCreationForm is executed" << std::endl;
