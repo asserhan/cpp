@@ -9,7 +9,7 @@ int main(int ac, char **av)
     (void)av;
     if(ac == 1){
         
-        Bureaucrat b("Bureaucrat", 146);
+        Bureaucrat b("Bureaucrat", 1);
         AForm *form[3];
         form[0] = new ShrubberyCreationForm("home");
         form[1] = new RobotomyRequestForm("home");

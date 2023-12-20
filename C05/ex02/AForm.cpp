@@ -1,5 +1,5 @@
 #include "AForm.hpp"
-AForm::AForm() : _name("default"), _signed(false), _gradeSign(15), _gradeExec(15) {
+AForm::AForm() : _name("default"), _signed(false), _gradeSign(150), _gradeExec(150) {
     //std::cout << "AForm default constructor called" << std::endl;
 }
 AForm:: AForm(std::string name, const int gradeToSign, const int gradeToExecute) : _name(name),_gradeSign(gradeToSign),_gradeExec(gradeToExecute){
@@ -43,7 +43,7 @@ std :: ostream &operator<<(std :: ostream &os,const AForm &oobj){
     return(os);
 }
 void AForm :: beSigned(Bureaucrat &bureaucrat){
-    if(bureaucrat.getGrade() < this->_gradeSign)
+    if(bureaucrat.getGrade() > this->_gradeSign)
         throw AForm :: GradeTooLowExeption();
     else
         this->_signed = true;

@@ -21,7 +21,7 @@ RobotomyRequestForm:: ~RobotomyRequestForm(){
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
     if(this->getSigned() == false)
         throw AForm::FormNotSignedException();
-    else if(executor.getGrade() < this->getGradeToExecute())
+    else if(executor.getGrade() > this->getGradeToExecute())
         throw AForm::GradeTooLowExeption();
     else{
         std::cout << "Meaaaaaaw "<< "RobotomyRequestForm is executed" << std::endl;
