@@ -24,6 +24,15 @@ AForm &AForm :: operator=(const AForm &oobj){
 AForm:: ~AForm(){
    // std::cout << "AForm destructor called" << std::endl;
 }
+const char *AForm:: GradeTooHighExeption :: what() const throw(){
+    return "Grade too Hight";
+}
+const char *AForm:: GradeTooLowExeption :: what() const throw(){
+    return "Grade too low";
+}
+const char *AForm:: FormNotSignedException :: what() const throw(){
+    return "Form not signed";
+}
 const std::string AForm :: getName()const{
     return(this->_name);
 }

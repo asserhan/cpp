@@ -24,6 +24,12 @@ Form &Form :: operator=(const Form &oobj){
 Form:: ~Form(){
    // std::cout << "Form destructor called" << std::endl;
 }
+const char *Form:: GradeTooHighExeption :: what() const throw(){
+    return "Grade too Hight";
+}
+const char *Form:: GradeTooLowExeption :: what() const throw(){
+    return "Grade too low";
+}
 const std::string Form :: getName()const{
     return(this->_name);
 }

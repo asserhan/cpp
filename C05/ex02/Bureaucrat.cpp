@@ -24,6 +24,12 @@ Bureaucrat & Bureaucrat :: operator=(const Bureaucrat &oobj){
 Bureaucrat:: ~Bureaucrat(){
    // std::cout << "Bureaucrat destructor called" << std::endl;
 }
+const char *Bureaucrat:: GradeTooHighExeption :: what() const throw(){
+    return "Grade too Hight";
+}
+const char *Bureaucrat:: GradeTooLowExeption :: what() const throw(){
+    return "Grade too low";
+}
 const std::string  Bureaucrat :: getName()const{
     return(this->_name);
 }

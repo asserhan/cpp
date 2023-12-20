@@ -16,17 +16,13 @@ class Bureaucrat{
     Bureaucrat &operator=(const Bureaucrat &oobj);
     ~Bureaucrat();
     //Exception classes
-    class GradeTooHighExeption : public std::exception{
+     class GradeTooHighExeption : public std::exception{
         public:
-        virtual const char * what() const throw(){
-            return "Grade too Hight";
-        }
+        virtual const char * what() const throw();
     };
     class GradeTooLowExeption : public std::exception{
         public:
-        virtual const char * what() const throw(){
-            return "Grade Too low";
-        }
+        virtual const char * what() const throw();
     };
     //getters
     const std::string getName()const;

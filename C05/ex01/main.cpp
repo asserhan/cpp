@@ -7,9 +7,7 @@ int main(int ac,char *av[])
     {
         try{
             Bureaucrat bu("diplomat", 1);
-            std::cout << bu;
             Form form("form", 5, 1);
-            std::cout << form;
             form.beSigned(bu);
             bu.signForm(form);
             bu.Decrement();

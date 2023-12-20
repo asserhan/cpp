@@ -3,13 +3,16 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
+void ff(void){
+    system("leaks ex02");
+}
 int main(int ac, char **av)
 {
     (void)av;
+    atexit(ff);
     if(ac == 1){
         
-        Bureaucrat b("Bureaucrat", 1);
+        Bureaucrat b("Bureaucrat", 150);
         AForm *form[3];
         form[0] = new ShrubberyCreationForm("home");
         form[1] = new RobotomyRequestForm("home");
