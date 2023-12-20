@@ -43,7 +43,7 @@ std :: ostream &operator<<(std :: ostream &os,const Form &oobj){
     return(os);
 }
 void Form :: beSigned(Bureaucrat &bureaucrat){
-    if(bureaucrat.getGrade() < this->_gradeSign)
+    if(bureaucrat.getGrade() > this->getGradeToSign())
         throw Form :: GradeTooLowExeption();
     else
         this->_signed = true;
