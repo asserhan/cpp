@@ -10,8 +10,6 @@ int main(int ac,char *av[])
             Form form("form", 5, 1);
             form.beSigned(bu);
             bu.signForm(form);
-            bu.Decrement();
-            std::cout << form;
         }
         catch(std::exception &e){
             std::cout << e.what() << std::endl;
