@@ -18,6 +18,7 @@ Bureaucrat:: Bureaucrat(const Bureaucrat &oobj) {
 }
 Bureaucrat & Bureaucrat :: operator=(const Bureaucrat &oobj) {
     std::cout << "Bureaucrat copy assignment operator" << std::endl;
+    // const_cast<std::string&>(this->_name)= oobj.getName();
     this->_grade = oobj.getGrade();
     return(*this);
 }
@@ -52,3 +53,4 @@ std :: ostream &operator<<(std :: ostream &os,const Bureaucrat &oobj){
     os << oobj.getName() << ", bureaucrat grade " << oobj.getGrade() << std::endl;
     return(os);
 }
+
