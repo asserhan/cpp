@@ -16,7 +16,7 @@ ScalarConverter:: ~ScalarConverter(){
     std::cout<<"default destructor called"<<std::endl;
 }
 void  ScalarConverter :: convert(std::string literal){
-    // std::string Special_Char[6] = {"-inf","+inf","nan","-inff","+inff","nanf"};
+    std::string Special_Char[6] = {"-inf","+inf","nan","-inff","+inff","nanf"};
     // char charValue = '\0';
     int intValue = 0;
     // float floatValue = 0.0f;
@@ -40,6 +40,30 @@ void  ScalarConverter :: convert(std::string literal){
             std::cout << "float : "<<static_cast<float>(intValue)<<".0f"<<std::endl;
             std::cout << "double : "<<static_cast<double>(intValue)<<".0"<<std::endl;
 
+        }
+    }else{
+        if(literal.compare(Special_Char[2]) == 0 || literal.compare(Special_Char[5]) == 0){
+            std::cout<<"char : impossible "<<std::endl;
+            std::cout<<"int : impossible "<<std::endl;
+            std::cout<<"float : nanf"<<std::endl;
+            std::cout<<"double : nan"<<std::endl;
+        }
+        if(literal.compare(Special_Char[0])==0 || literal.compare(Special_Char[3])==0)
+        {
+            std::cout<<"char : impossible "<<std::endl;
+            std::cout<<"int : impossible "<<std::endl;
+            std::cout<<"float : -inff"<<std::endl;
+            std::cout<<"double : -inf"<<std::endl;
+        }
+        if(literal.compare(Special_Char[1])==0 || literal.compare(Special_Char[4])==0)
+        {
+            std::cout<<"char : impossible "<<std::endl;
+            std::cout<<"int : impossible "<<std::endl;
+            std::cout<<"float : +inff"<<std::endl;
+            std::cout<<"double : +inf"<<std::endl;
+        }
+        else{
+            intValue=stoi(literal);
         }
     }
 }
