@@ -19,8 +19,8 @@ void  ScalarConverter :: convert(std::string literal){
     std::string Special_Char[6] = {"-inf","+inf","nan","-inff","+inff","nanf"};
     // char charValue = '\0';
     int intValue = 0;
-    // float floatValue = 0.0f;
-    // double doubleValue = 0.0;
+    float floatValue = 0.0f;
+    double doubleValue = 0.0;
     if(literal.length() == 1 )
     {
         if(!isdigit(literal[0])){
@@ -64,6 +64,26 @@ void  ScalarConverter :: convert(std::string literal){
         }
         else{
             intValue=stoi(literal);
+            if(literal.find('.')!=std::string::npos)
+            {
+                if(literal[literal.length() - 1]== 'f'){
+                    floatValue=stoi(literal);
+                    std::cout<<"char :"<<static_cast<char>(floatValue)<<std::endl;
+                    std::cout<<"int :"<<static_cast<int>(floatValue)<<std::endl;
+                    std::cout<<"float :"<<floatValue<<std::endl;
+                    std::cout<<"double :"<<static_cast<double>(floatValue)<<std::endl;
+                }else{
+                    doubleValue=stoi(literal);
+                    std::cout<<"char :"<<static_cast<char>(doubleValue)<<std::endl;
+                    std::cout<<"int :"<<static_cast<int>(doubleValue)<<std::endl;
+                    std::cout<<"float :"<<static_cast<float>(doubleValue)<<std::endl;
+                    std::cout<<"double :"<<doubleValue<<std::endl;
+                }
+            }
+            std::cout<<"char : "<<static_cast<char>(intValue)<<std::endl;
+            std::cout<<"int : "<<intValue<<std::endl;
+            std::cout<<"float :"<<static_cast<float>(intValue)<<std::endl;
+            std::cout<<"double :"<<static_cast<double>(intValue)<<std::endl;
         }
     }
 }
