@@ -3,11 +3,12 @@
 #include <iostream>
 
 class  ScalarConverter{
-    public:
+    private:
     ScalarConverter();
     ScalarConverter(const ScalarConverter &oobj);
     ScalarConverter &operator=(const ScalarConverter &oobj);
+    public:
     ~ScalarConverter();
-    static void convert(std ::string form);
+    static void convert(std ::string literal);
 };
 #endif

@@ -1,11 +1,11 @@
-NAME = Bureaucrat
+NAME = scalar
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC = Bureaucrat.cpp main.cpp
+SRC = ScalarConverter.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
-HEADERS = Bureaucrat.hpp
+HEADERS = ScalarConverter.hpp
 
 all: $(NAME)
 
