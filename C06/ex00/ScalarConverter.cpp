@@ -15,9 +15,17 @@ ScalarConverter & ScalarConverter :: operator=(const ScalarConverter &oobj){
 ScalarConverter:: ~ScalarConverter(){
     std::cout<<"default destructor called"<<std::endl;
 }
+bool is_digit(std::string literal){
+    for(size_t i=0;i<literal.length();i++)
+    {
+        if(!isdigit(literal[i]))
+            return false;
+    }
+    return true;
+}
 void  ScalarConverter :: convert(std::string literal){
     std::string Special_Char[6] = {"-inf","+inf","nan","-inff","+inff","nanf"};
-    // char charValue = '\0';
+    
     int intValue = 0;
     float floatValue = 0.0f;
     double doubleValue = 0.0;
@@ -79,14 +87,18 @@ void  ScalarConverter :: convert(std::string literal){
                     std::cout<<"double : "<<doubleValue<<".0"<<std::endl;
                 }
             }
-            else{
+            else if(is_digit(literal)){
                 intValue=stoi(literal);
                 std::cout<<"char : '"<<static_cast<char>(intValue)<<"'"<<std::endl;
                 std::cout<<"int : "<<intValue<<std::endl;
                 std::cout<<"float :"<<static_cast<float>(intValue)<<".0f"<<std::endl;
                 std::cout<<"double :"<<static_cast<double>(intValue)<<".0"<<std::endl;
             }
+            else {
+                std::cout<<"wrong input"<<std::endl;
+            }
         }
+       
     }
 }
 
