@@ -23,7 +23,14 @@ bool is_digit(std::string literal){
     }
     return true;
 }
-
+bool parse_literal(std::string literal){
+    for(size_t i=0;i<literal.length();i++)
+    {
+        if(!isdigit(literal[i]) && literal[i] != 'f' && literal[i]!= '.')
+            return(false);
+    }
+    return(true);
+}
 void  ScalarConverter :: convert(std::string literal){
     std::string Special_Char[6] = {"-inf","+inf","nan","-inff","+inff","nanf"};
     
@@ -56,6 +63,7 @@ void  ScalarConverter :: convert(std::string literal){
             std::cout<<"int : impossible "<<std::endl;
             std::cout<<"float : nanf"<<std::endl;
             std::cout<<"double : nan"<<std::endl;
+            return;
         }
         if(literal.compare(Special_Char[0])==0 || literal.compare(Special_Char[3])==0)
         {
@@ -63,6 +71,7 @@ void  ScalarConverter :: convert(std::string literal){
             std::cout<<"int : impossible "<<std::endl;
             std::cout<<"float : -inff"<<std::endl;
             std::cout<<"double : -inf"<<std::endl;
+            return;
         }
         if(literal.compare(Special_Char[1])==0 || literal.compare(Special_Char[4])==0)
         {
@@ -70,8 +79,14 @@ void  ScalarConverter :: convert(std::string literal){
             std::cout<<"int : impossible "<<std::endl;
             std::cout<<"float : +inff"<<std::endl;
             std::cout<<"double : +inf"<<std::endl;
+            return;
         }
         else{
+            if(parse_literal(literal) == false)
+            {
+                std::cout<<"wrong input"<<std::endl;
+                return;
+            }
             if(literal.find('.')!=std::string::npos)
             {
                 if(literal.find('.')!=literal.rfind('.'))
@@ -80,6 +95,11 @@ void  ScalarConverter :: convert(std::string literal){
                     return;
                 }
                 if(literal[literal.length() - 1]== 'f'){
+                    if(literal.find('f')!=literal.rfind('f'))
+                    {
+                        std::cout<<"wrong input"<<std::endl;
+                        return;
+                    }
                     floatValue=stof(literal);
                     if(!isprint(floatValue))
                         std::cout << "char : Non displayable"<<std::endl;
