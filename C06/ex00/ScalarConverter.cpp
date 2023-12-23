@@ -32,7 +32,7 @@ bool parse_literal(std::string literal){
     return(true);
 }
 void  ScalarConverter :: convert(std::string literal){
-    std::string Special_Char[6] = {"-inf","+inf","nan","-inff","+inff","nanf"};
+    std::string Special_Char[8] = {"-inf","+inf","nan","-inff","+inff","nanf","inf","inff"};
     
     int intValue = 0;
     float floatValue = 0.0f;
@@ -58,14 +58,14 @@ void  ScalarConverter :: convert(std::string literal){
 
         }
     }else{
-        if(literal.compare(Special_Char[2]) == 0 || literal.compare(Special_Char[5]) == 0){
+        if(!literal.compare(Special_Char[2])  || !literal.compare(Special_Char[5])){
             std::cout<<"char : impossible "<<std::endl;
             std::cout<<"int : impossible "<<std::endl;
             std::cout<<"float : nanf"<<std::endl;
             std::cout<<"double : nan"<<std::endl;
             return;
         }
-        if(literal.compare(Special_Char[0])==0 || literal.compare(Special_Char[3])==0)
+        if(!literal.compare(Special_Char[0]) || !literal.compare(Special_Char[3]))
         {
             std::cout<<"char : impossible "<<std::endl;
             std::cout<<"int : impossible "<<std::endl;
@@ -73,7 +73,7 @@ void  ScalarConverter :: convert(std::string literal){
             std::cout<<"double : -inf"<<std::endl;
             return;
         }
-        if(literal.compare(Special_Char[1])==0 || literal.compare(Special_Char[4])==0)
+        if(!literal.compare(Special_Char[1]) || !literal.compare(Special_Char[4]) || !literal.compare(Special_Char[6]) || !literal.compare(Special_Char[7]))
         {
             std::cout<<"char : impossible "<<std::endl;
             std::cout<<"int : impossible "<<std::endl;

@@ -6,9 +6,8 @@
 class  ScalarConverter{
    private:
     ScalarConverter();
-
-    public:
     ScalarConverter(const ScalarConverter &oobj);
+    public:
     ScalarConverter &operator=(const ScalarConverter &oobj);
     ~ScalarConverter();
     static void convert(std ::string literal);

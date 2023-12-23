@@ -1,4 +1,4 @@
-NAME = scalar
+NAME = convert
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
