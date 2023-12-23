@@ -23,6 +23,7 @@ bool is_digit(std::string literal){
     }
     return true;
 }
+
 void  ScalarConverter :: convert(std::string literal){
     std::string Special_Char[6] = {"-inf","+inf","nan","-inff","+inff","nanf"};
     
@@ -73,15 +74,26 @@ void  ScalarConverter :: convert(std::string literal){
         else{
             if(literal.find('.')!=std::string::npos)
             {
+                if(literal.find('.')!=literal.rfind('.'))
+                {
+                    std::cout<<"wrong input"<<std::endl;
+                    return;
+                }
                 if(literal[literal.length() - 1]== 'f'){
                     floatValue=stof(literal);
-                    std::cout<<"char : '"<<static_cast<char>(floatValue)<<"'"<<std::endl;
+                    if(!isprint(floatValue))
+                        std::cout << "char : Non displayable"<<std::endl;
+                    else 
+                        std::cout<<"char : '"<<static_cast<char>(floatValue)<<"'"<<std::endl;
                     std::cout<<"int : "<<static_cast<int>(floatValue)<<std::endl;
                     std::cout<<"float : "<<floatValue<<".0f"<<std::endl;
                     std::cout<<"double : "<<static_cast<double>(floatValue)<<".0"<<std::endl;
                 }else{
                     doubleValue=stod(literal);
-                    std::cout<<"char : '"<<static_cast<char>(doubleValue)<<"'"<<std::endl;
+                    if(!isprint(doubleValue))
+                        std::cout << "char : Non displayable"<<std::endl;
+                    else
+                         std::cout<<"char : '"<<static_cast<char>(doubleValue)<<"'"<<std::endl;
                     std::cout<<"int : "<<static_cast<int>(doubleValue)<<std::endl;
                     std::cout<<"float : "<<static_cast<float>(doubleValue)<<".0f"<<std::endl;
                     std::cout<<"double : "<<doubleValue<<".0"<<std::endl;
@@ -89,7 +101,10 @@ void  ScalarConverter :: convert(std::string literal){
             }
             else if(is_digit(literal)){
                 intValue=stoi(literal);
-                std::cout<<"char : '"<<static_cast<char>(intValue)<<"'"<<std::endl;
+                if(!isprint(intValue))
+                        std::cout << "char : Non displayable"<<std::endl;
+                else
+                     std::cout<<"char : '"<<static_cast<char>(intValue)<<"'"<<std::endl;
                 std::cout<<"int : "<<intValue<<std::endl;
                 std::cout<<"float :"<<static_cast<float>(intValue)<<".0f"<<std::endl;
                 std::cout<<"double :"<<static_cast<double>(intValue)<<".0"<<std::endl;
