@@ -4,7 +4,7 @@
 #include "C.hpp"
 
 Base :: ~Base(){
-    std::cout<<"Default constructor called"<<std::endl;
+    std::cout<<"Default destructor called"<<std::endl;
 }
 Base *generate(void){
    Base *ptr = NULL;
@@ -30,7 +30,7 @@ void identify(Base *p){
         std::cout<<"C"<<std::endl;
     }
     else{
-        std::cout<<"Wrong argument"<<std::endl;
+        std::cout<<"bad cast"<<std::endl;
     }
 }
 void identify(Base &p){
@@ -52,7 +52,7 @@ void identify(Base &p){
                 (void)c;
             }
             catch(std::bad_cast &bc){
-                std::cout<<"Wrong argument"<<std::endl;
+                std::cout<<"bad cast"<<std::endl;
             }
         }
     }
