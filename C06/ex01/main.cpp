@@ -1,10 +1,8 @@
 #include "Serializer.hpp"
-void ff(){
-    system("leaks serialiser");
-}
+
 int main(int ac,char **av){
     (void)av;
-    atexit(ff);
+
     if(ac == 1){
         Data *ptr = new Data();
         std::cout<< ptr<<std::endl;

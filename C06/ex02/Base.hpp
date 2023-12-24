@@ -10,7 +10,7 @@ class Base{
     public:
     virtual ~Base();
 };
-Base *generate(void); //downcasting
-void identify(Base *p);
+Base *generate(void); //upcasting
+void identify(Base *p); //downcasting
 void identify(Base &p);
 #endif
