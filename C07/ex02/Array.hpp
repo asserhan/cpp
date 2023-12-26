@@ -4,7 +4,13 @@
 
 template<class T>
 class Array{
-
+    private:
+        T *tab;
+        unsigned int size;
+    public:
+    Array();
+    Array(unsigned int n);
+    ~Array();
 };
 
 #endif
