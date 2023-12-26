@@ -19,6 +19,6 @@ int main() {
     int tab[] = {5,28,2};
     float tab2[4]={2.5f,0.0f,4.2f,9.5f};
     iter(tab,3,multiply<int>);
-    iter(tab2,4,multiply< float>);
+    iter(tab2,4,multiply<float>);
   return 0;
 }
