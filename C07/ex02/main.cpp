@@ -17,10 +17,10 @@ Array<T>:: ~Array(){
     delete[] this->tab;
 }
 
-template<class T> 
-Array<T>::Array(const T &oobj): tab(new T[oobj.size()]),_size(oobj.size()){
-    std::cout <<"Copy constructor called"<<std::endl;
-    for(unsigned int i = 0;i<_size;i++){
+template<class T>
+Array<T>:: Array(const T &oobj):tab(new T[oobj.size()]),_size(oobj.size()) {
+    std::cout << "Copy constructor called" << std::endl;
+    for(unsigned int i = 0; i < _size; i++) {
         tab[i] = oobj.tab[i];
     }
 }
@@ -53,9 +53,23 @@ T & Array<T> :: operator[](unsigned int index){
         throw Array::OutOfBoundsException();
     return(tab[index]);
 }
+
+template<class T>
+std::ostream &operator<<(std::ostream &os, Array<T> &oobj){
+    for(unsigned int i = 0;i<oobj.size();i++){
+        os<<oobj[i]<<std::endl;
+    }
+    return(os);
+}
 int main(){
     try{
-        Array<int>array[5];
+        Array<int>iarray[5]={5,4,0,2,1};
+        Array<float>farray[10];
+        std::cout<<iarray[1]<<std::endl;
+        std::cout<<iarray[4]<<std::endl;
+    }
+    catch(std::exception &e){
+        std::cout<<e.what()<<std::endl;
     }
 
 }

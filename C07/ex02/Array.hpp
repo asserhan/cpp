@@ -20,5 +20,6 @@ class Array{
         virtual const char * what()const throw();
     };
 };
-
+template<class T>
+std::ostream &operator<<(std::ostream &os,const Array<T> &oobj);
 #endif
