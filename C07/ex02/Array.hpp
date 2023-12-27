@@ -10,6 +10,8 @@ class Array{
     public:
     Array();
     Array(unsigned int n);
+    Array(const T &oobj);
+    T & operator=(const T &oobj);
     ~Array();
 };
 
