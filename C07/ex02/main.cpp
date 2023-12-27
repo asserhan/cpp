@@ -8,19 +8,21 @@ Array<T>:: Array() : tab(NULL),_size(0){
 template<class T>
 Array<T>:: Array(unsigned int n) : tab(new T[n]),_size(n){
         std::cout << "Array created" << std::endl;
-//     for(unsigned int i = 0;i<n;i++){
-//         this->tab[i] = T();
-//     }
+
 }
 
 template<class T>
 Array<T>:: ~Array(){
     std::cout << "Default destructor called" << std::endl;
+    delete[] this->tab;
 }
 
 template<class T> 
-Array<T>::Array(const T&oobj):tab(new T[oobj.size()]),_size(oobj.size()){
+Array<T>::Array(const T &oobj): tab(new T[oobj.size()]),_size(oobj.size()){
     std::cout <<"Copy constructor called"<<std::endl;
+    for(unsigned int i = 0;i<_size;i++){
+        tab[i] = oobj.tab[i];
+    }
 }
 
 template<class T>
@@ -29,6 +31,9 @@ T& Array<T> :: operator=(const T&oobj){
     delete[]this->tab;
     this->tab = new T[oobj.size()];
     this->_size = oobj.size();
+    for(unsigned int i = 0;i<_size;i++){
+        tab[i] = oobj.tab[i];
+    }
     return(*this);
 } 
 
@@ -41,14 +46,16 @@ template<class T>
 const char * Array<T> :: OutOfBoundsException :: what()const throw(){
     return "Index out of bounds";
 }
+
 template<class T>
 T & Array<T> :: operator[](unsigned int index){
     if(index > size() || index < 0)
         throw Array::OutOfBoundsException();
+    return(tab[index]);
 }
 int main(){
-    Array<int>tab(5);
-    // for(int i=0;i<5;i++){
-    //     std::cout<<tab[i]<<std::endl;
-    // }
+    try{
+        Array<int>array[5];
+    }
+
 }
