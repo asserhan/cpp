@@ -10,8 +10,8 @@ class Array{
     public:
     Array();
     Array(unsigned int n);
-    Array(const T &oobj);
-    T & operator=(const T &oobj);
+    Array(const Array &oobj);
+    Array & operator=(const Array &oobj);
     ~Array();
     unsigned int size() const;
     T & operator[](unsigned int index);
