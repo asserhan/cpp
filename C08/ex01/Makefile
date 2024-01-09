@@ -5,7 +5,7 @@ OBJ_DIR = obj
 SRC =  main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98 
-HEADERS = easyfind.hpp
+HEADERS = Array.hpp
 
 all: $(NAME)
 
