@@ -1,25 +1,25 @@
 #include "Span.hpp"
 
 Span::Span(){
-    std::cout<<"default constructor called"<<std::endl;
+    //std::cout<<"default constructor called"<<std::endl;
 }
 Span::Span(unsigned int N):_N(N){
-    std::cout<<"Constructor called"<<std::endl;
+    //std::cout<<"Constructor called"<<std::endl;
     if(N==0)
         throw std::exception();
     this->_v.reserve(N);
 }
 Span ::Span(const Span &oobj){
-    std::cout<<"copy constructor called"<<std::endl;
+    //std::cout<<"copy constructor called"<<std::endl;
     (*this)=oobj;
 }
 Span & Span:: operator=(const Span &oobj){
-    std::cout<<"copy assignment operator called"<<std::endl;
+    //std::cout<<"copy assignment operator called"<<std::endl;
     this->_N =oobj.getN();
     return(*this);
 }
 Span :: ~Span(){
-    std::cout<<"default destructor called"<<std::endl;
+   // std::cout<<"default destructor called"<<std::endl;
 }
 unsigned int Span :: getN() const{
     return(this->_N);
@@ -49,7 +49,8 @@ int Span:: longestSpan(){
     int max = *std::max_element(this->_v.begin(), this->_v.end());
     return(max - min);
 }
-void Span:: fillSpan(int start, int end){
-    while(start <= end)
-        addNumber
+void Span:: fillSpan(std::vector<int>::iterator begin , std::vector<int>::iterator end){
+    if(this->_v.size() > this->_N)
+        throw std::exception();
+    this->_v.insert(this->_v.end(),begin,end);
 }
