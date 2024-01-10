@@ -6,7 +6,7 @@ Span::Span(){
 Span::Span(unsigned int N):_N(N){
     //std::cout<<"Constructor called"<<std::endl;
     if(N==0)
-        throw std::exception();
+        throw std::out_of_range("size is zero");
     this->_v.reserve(N);
 }
 Span ::Span(const Span &oobj){
@@ -28,11 +28,11 @@ void Span :: addNumber(int n){
     if(this->_v.size() < this->_N)
         this->_v.push_back(n);
     else
-        throw std::exception();
+        throw std::out_of_range("vector is full");
 }
 int Span :: shortestSpan(){
     if(this->_v.size() < 2)
-        throw std::exception();
+        throw std::logic_error("vector is empty or has only one element");
     std::vector<int> tmp(this->_v);
     std::sort(tmp.begin(),tmp.end());
     int minSpan=std::numeric_limits<int>::max();
@@ -44,13 +44,13 @@ int Span :: shortestSpan(){
 }
 int Span:: longestSpan(){
     if (this->_v.size() < 2)
-        throw std::exception();
+        throw std::logic_error("vector is empty or has only one element");
     int min = *std::min_element(this->_v.begin(), this->_v.end());
     int max = *std::max_element(this->_v.begin(), this->_v.end());
     return(max - min);
 }
 void Span:: fillSpan(std::vector<int>::iterator begin , std::vector<int>::iterator end){
     if(this->_v.size() > this->_N)
-        throw std::exception();
+        throw std::out_of_range("vector is full");
     this->_v.insert(this->_v.end(),begin,end);
 }
