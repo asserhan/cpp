@@ -2,10 +2,10 @@ NAME = ex02
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC =  main.cpp
+SRC =  Span.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98 
-HEADERS = Array.hpp
+HEADERS = Span.hpp
 
 all: $(NAME)
 
