@@ -50,7 +50,7 @@ int Span:: longestSpan(){
     return(max - min);
 }
 void Span:: fillSpan(std::vector<int>::iterator begin , std::vector<int>::iterator end){
+    this->_v.insert(this->_v.end(),begin,end);
     if(this->_v.size() > this->_N)
         throw std::out_of_range("vector is full");
-    this->_v.insert(this->_v.end(),begin,end);
 }

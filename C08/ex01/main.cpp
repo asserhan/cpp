@@ -17,10 +17,10 @@ int main(){
         }
     }
     try{
-        std::vector<int> v(20);
+        std::vector<int> v(20100);
         srand(time(NULL));
         std::generate(v.begin(), v.end(), rand);    
-        Span sp = Span(v.size() - 10);
+        Span sp = Span(v.size());
         sp.fillSpan(v.begin(), v.end());
         std::cout<<sp.shortestSpan()<<std::endl;
         std::cout<<sp.longestSpan()<<std::endl;
