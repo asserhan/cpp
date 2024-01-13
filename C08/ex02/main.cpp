@@ -20,11 +20,6 @@ int main(){
         ++it;
     }
     std::stack<int> s(mstack);
-    // std::cout << "************" << std::endl;
-    // while(!s.empty()){
-    //     std::cout <<s.top() << std::endl;
-    //     s.pop();
-    // }
     std::cout << "************" << std::endl;
     std::list<int> l;
     l.push_back(5);
