@@ -2,7 +2,7 @@ NAME = mystack
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC = MutantStack.cpp main.cpp
+SRC = main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 HEADERS = MutantStack.hpp
