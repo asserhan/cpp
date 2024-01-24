@@ -2,5 +2,14 @@
 #define BITCOINEXCHANGE_HPP
 #include <iostream>
 #include <string>
-class 
+#include <map>
+class BitcoinExchange {
+    private:
+    std::map<std::string,float> data;
+    public:
+    BitcoinExchange();
+    BitcoinExchange(const BitcoinExchange &oobj);
+    BitcoinExchange &operator=(const BitcoinExchange &oobj);
+    ~BitcoinExchange();
+};
 #endif

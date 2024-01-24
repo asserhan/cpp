@@ -68,6 +68,9 @@
         "charconv": "cpp",
         "clocale": "cpp",
         "variant": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "__tree": "cpp",
+        "list": "cpp",
+        "map": "cpp"
     }
 }

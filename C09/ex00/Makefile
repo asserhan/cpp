@@ -5,7 +5,7 @@ OBJ_DIR = obj
 SRC = main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
-HEADERS = MutantStack.hpp
+HEADERS = BitcoinExchange.hpp
 
 all: $(NAME)
 
