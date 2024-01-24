@@ -1,4 +1,4 @@
-NAME = bitcoin
+NAME = btc
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
