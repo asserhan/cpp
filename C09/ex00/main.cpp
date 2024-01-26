@@ -1,5 +1,6 @@
 #include "BitcoinExchange.hpp"
 #include <fstream>
+
 int main(int ac,char **av){
 
    if(ac > 2){
@@ -9,6 +10,11 @@ int main(int ac,char **av){
     std::ifstream file(av[1]);
     if(!file.is_open())
         std::cout<<"Error : could not open file."<<std::endl;
+    else{
+        BitcoinExchange exchange;
+        exchange.read(file);
+        exchange.print();
+    }
      return(0);
     
 }
