@@ -2,9 +2,13 @@
 
 BitcoinExchange :: BitcoinExchange(){
     std::ifstream file("data.csv");
-    if(!file.is_open() || file.fail() || is_empty(file)){
+    if(!file.is_open() || is_empty(file)){
         std::cout<<"Error : could not open file."<<std::endl;
         exit(1);
+    }
+    else{
+        std::string line;
+        
     }
 }
 
