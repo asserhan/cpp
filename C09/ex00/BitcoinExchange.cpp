@@ -14,14 +14,10 @@ BitcoinExchange :: BitcoinExchange(){
             std::string value_str = line.substr(line.find(',')+1);
             float value = std::stof(value_str);
             this->data[key] = value;
-            std::cout<<key<<" "<<value<<std::endl;
-        }
-        
+        }    
         file.close();  
     }
-    // for(std::map<std::string,float>::iterator it = this->data.begin(); it != this->data.end(); it++){
-    //     std::cout<<it->first<<" "<<it->second<<std::endl;
-    // }
+ 
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &oobj){
@@ -33,7 +29,21 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &oobj){
 }
 
 BitcoinExchange::~BitcoinExchange(){
-    
+   
+}
+void BitcoinExchange::read(std::istream &file){
+    std::string line;
+    std::getline(file,line);
+    if(line != "date | value"){
+        std::cout<<"Error bad file"<<std::endl;
+        exit(1);
+    }
+    std::map<std::string,float> input_data;
+    while(std::getline(file,line))
+    {
+
+    }
+     
 }
 bool is_empty(std::ifstream &file){
     return(file.peek() == std::ifstream::traits_type::eof());
