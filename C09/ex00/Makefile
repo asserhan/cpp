@@ -2,7 +2,7 @@ NAME = btc
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC = main.cpp
+SRC = BitcoinExchange.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 HEADERS = BitcoinExchange.hpp
