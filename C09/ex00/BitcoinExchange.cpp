@@ -31,17 +31,23 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &oobj){
 BitcoinExchange::~BitcoinExchange(){
    
 }
+void skip_spaces(std::string line){
+    
+}
+void split_line(std::string line){
+    if(line.find('|') == 0 || line.find('|') == line.size()-1 )
+       throw std::runtime_error("Error : bad ..file");
+}
 void BitcoinExchange::read(std::istream &file){
     std::string line;
     std::getline(file,line);
     if(line != "date | value"){
-        std::cout<<"Error bad file"<<std::endl;
-        exit(1);
+        throw std::runtime_error("Error : bad file");
     }
-    std::map<std::string,float> input_data;
+   // std::map<std::string,float> input_data;
     while(std::getline(file,line))
     {
-
+        split_line(line);
     }
      
 }
