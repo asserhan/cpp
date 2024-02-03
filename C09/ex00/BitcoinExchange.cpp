@@ -32,7 +32,7 @@ BitcoinExchange::~BitcoinExchange(){
    
 }
 void skip_spaces(std::string line){
-    
+       
 }
 void split_line(std::string line){
     if(line.find('|') == 0 || line.find('|') == line.size()-1 )
