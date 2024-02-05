@@ -33,12 +33,16 @@ BitcoinExchange::~BitcoinExchange(){
 }
 // void skip_spaces(std::string line){
        
-// }
-void split_line(std::string line){
-    std::cout << line << std::endl;
-    std::string splited[2];
-    if(line.find('|') == 0 || line.find('|') == line.size()-1 || std::count(line.begin(),line.end(),'|') != 1)
+//
+std::string *split_line(std::string line){
+    std::string *splited = new std::string[2];
+    size_t pos = line.find('|');
+    if(pos == std::string::npos){
         throw std::runtime_error("Error : bad input => "+line);
+    }
+    splited[0] = line.substr(0,pos);
+    splited[1] = line.substr(pos+1);
+    return splited;
 }
 void BitcoinExchange::read(std::istream &file){
     std::string line;
@@ -46,10 +50,21 @@ void BitcoinExchange::read(std::istream &file){
     if(line != "date | value"){
         throw std::runtime_error("Error : bad file");
     }
-   // std::map<std::string,float> input_data;
-    while(std::getline(file,line))
+   //std::map<std::string,float> input_data;
+    while(!file.eof())
     {
-        split_line(line);
+        std::getline(file,line);
+        std::string *splited = NULL;
+        try{
+            splited = split_line(line);
+            std::cout<<splited[0]<<" =="<<splited[1]<<std::endl;
+
+        }
+        catch(std::runtime_error &e){
+            std::cout<<e.what()<<std::endl;
+            continue;
+        }
+
     }
      
 }
