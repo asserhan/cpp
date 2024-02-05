@@ -31,12 +31,14 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &oobj){
 BitcoinExchange::~BitcoinExchange(){
    
 }
-void skip_spaces(std::string line){
+// void skip_spaces(std::string line){
        
-}
+// }
 void split_line(std::string line){
-    if(line.find('|') == 0 || line.find('|') == line.size()-1 )
-       throw std::runtime_error("Error : bad ..file");
+    std::cout << line << std::endl;
+    std::string splited[2];
+    if(line.find('|') == 0 || line.find('|') == line.size()-1 || std::count(line.begin(),line.end(),'|') != 1)
+        throw std::runtime_error("Error : bad input => "+line);
 }
 void BitcoinExchange::read(std::istream &file){
     std::string line;
