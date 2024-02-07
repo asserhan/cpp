@@ -55,10 +55,9 @@ std::string *split_line(std::string line){
 void check_date(std::string &date)
 {
     date=skip_spaces(date);
-    if(date.empty() || date.size() != 10){
+    if(date.empty() || date.size() != 10 || date[4] != '-' || date[7] != '-'){
         throw std::runtime_error("Error : bad date");
     }
-
 }
 void get_bitcoin(std::string &date,std::string &value){
     check_date(date);
