@@ -31,18 +31,38 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &oobj){
 BitcoinExchange::~BitcoinExchange(){
    
 }
-// void skip_spaces(std::string line){
+
+std::string skip_spaces(std::string &line){
+    size_t start = line.find_first_not_of(" \t");
+    size_t end = line.find_last_not_of(" \t");
+    if(start == std::string::npos)
+        return "";
+    return line.substr(start,end-start+1);
+}
        
-//
+
 std::string *split_line(std::string line){
     std::string *splited = new std::string[2];
     size_t pos = line.find('|');
     if(pos == std::string::npos){
+        delete[] splited;
         throw std::runtime_error("Error : bad input => "+line);
     }
     splited[0] = line.substr(0,pos);
     splited[1] = line.substr(pos+1);
     return splited;
+}
+void check_date(std::string &date)
+{
+    date=skip_spaces(date);
+    if(date.empty() || date.size() != 10){
+        throw std::runtime_error("Error : bad date");
+    }
+
+}
+void get_bitcoin(std::string &date,std::string &value){
+    check_date(date);
+    (void)value;
 }
 void BitcoinExchange::read(std::istream &file){
     std::string line;
@@ -50,15 +70,13 @@ void BitcoinExchange::read(std::istream &file){
     if(line != "date | value"){
         throw std::runtime_error("Error : bad file");
     }
-   //std::map<std::string,float> input_data;
     while(!file.eof())
     {
         std::getline(file,line);
         std::string *splited = NULL;
         try{
             splited = split_line(line);
-            std::cout<<splited[0]<<" =="<<splited[1]<<std::endl;
-
+            get_bitcoin(splited[0],splited[1]);
         }
         catch(std::runtime_error &e){
             std::cout<<e.what()<<std::endl;
