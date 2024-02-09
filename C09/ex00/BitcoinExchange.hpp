@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <fstream>
+#include <ctime>
 class BitcoinExchange {
     private:
     std::map<std::string,float> data;
