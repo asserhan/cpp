@@ -5,6 +5,7 @@
 #include <map>
 #include <fstream>
 #include <ctime>
+#include <limits.h>
 class BitcoinExchange {
     private:
     std::map<std::string,float> data;
