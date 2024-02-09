@@ -16,7 +16,8 @@ BitcoinExchange :: BitcoinExchange(){
         while(std::getline(file,line)){
             std::string key = line.substr(0,line.find(','));
             std::string value_str = line.substr(line.find(',')+1);
-            double value = std::stod(value_str);
+            double value = std::atof(value_str.c_str());
+            std::cout <<"****"<<value<<"****"<<std::endl;
             this->data[key] = value;
         }    
         file.close();  
@@ -103,18 +104,22 @@ double check_value(std::string &value){
 
 double BitcoinExchange:: get_bitcoin_Ex(std::string &date,std::string &value){
     check_date(date);
-    double val = std::stod(value);
-    double res ;
+    check_value(value);
+    //double val = std::stod(value);
+    //double res = 0.0;
     for(std::map<std::string,double>::iterator it = this->data.begin();it != this->data.end();it++){
-        if(it->first.compare(date) == 0){
-            res= (it->second * val);
-            break;
-        }
-        else{
-            res = -1;
-        }
+       //std::cout<<it->first<<" => "<<it->second<<std::endl;
+        // if(it->first.compare(date) == 0){
+        //     res= (it->second * val);
+        //     std::cout<<"hello"<<res<<std::endl;
+        //     break;
+        // }
+        // else{
+        //     res = -1;
+        //     break;
+        // }
     }
-    return res;
+    return 0.0;
 }
 void BitcoinExchange::read(std::istream &file){
     std::string line;
@@ -131,7 +136,8 @@ void BitcoinExchange::read(std::istream &file){
              check_date(splited[0]);
             check_value(splited[1]);
             double res = get_bitcoin_Ex(splited[0],splited[1]);
-            std::cout<<splited[0]<<" => "<<splited[1]<<" = "<<res<<std::endl;
+            (void)res;
+            //std::cout<<splited[0]<<" => "<<splited[1]<<" = "<<res<<std::endl;
         }
         catch(std::runtime_error &e){
             std::cout<<e.what()<<std::endl;
