@@ -9,10 +9,14 @@ BitcoinExchange :: BitcoinExchange(){
     else{
         std::string line;
         std::getline(file,line);
+        if(line != "date,exchange_rate"){
+            std::cout<<"Error : bad file."<<std::endl;
+            exit(1);
+        }
         while(std::getline(file,line)){
             std::string key = line.substr(0,line.find(','));
             std::string value_str = line.substr(line.find(',')+1);
-            float value = std::stof(value_str);
+            double value = std::stod(value_str);
             this->data[key] = value;
         }    
         file.close();  
@@ -76,7 +80,7 @@ void check_date(std::string &date)
         throw std::runtime_error("Error : bad date");
     }
 }
-float check_value(std::string &value){
+double check_value(std::string &value){
     value=skip_spaces(value);
     if(value.empty()){
         throw std::runtime_error("Error : bad value");
@@ -88,17 +92,29 @@ float check_value(std::string &value){
             throw std::runtime_error("Error : bad value");
         }
     }
-    float val = std::stof(value);
+    double val = std::stod(value);
     if (val < 0){
         throw std::runtime_error("Error : not a positive number");
     }
-    if(val > INT_MAX)
+    if(val >= INT_MAX)
         throw std::runtime_error("Error : too large a number");
     return val;
 }
-void get_bitcoin(std::string &date,std::string &value){
+
+double BitcoinExchange:: get_bitcoin_Ex(std::string &date,std::string &value){
     check_date(date);
-    check_value(value);
+    double val = std::stod(value);
+    double res ;
+    for(std::map<std::string,double>::iterator it = this->data.begin();it != this->data.end();it++){
+        if(it->first.compare(date) == 0){
+            res= (it->second * val);
+            break;
+        }
+        else{
+            res = -1;
+        }
+    }
+    return res;
 }
 void BitcoinExchange::read(std::istream &file){
     std::string line;
@@ -112,7 +128,10 @@ void BitcoinExchange::read(std::istream &file){
         std::string *splited = NULL;
         try{
             splited = split_line(line);
-            get_bitcoin(splited[0],splited[1]);
+             check_date(splited[0]);
+            check_value(splited[1]);
+            double res = get_bitcoin_Ex(splited[0],splited[1]);
+            std::cout<<splited[0]<<" => "<<splited[1]<<" = "<<res<<std::endl;
         }
         catch(std::runtime_error &e){
             std::cout<<e.what()<<std::endl;
