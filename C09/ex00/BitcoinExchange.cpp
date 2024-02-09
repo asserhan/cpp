@@ -15,9 +15,8 @@ BitcoinExchange :: BitcoinExchange(){
         }
         while(std::getline(file,line)){
             std::string key = line.substr(0,line.find(','));
-            std::string value_str = line.substr(line.find(',')+1);
+            std::string value_str = line.substr(line.find(',')+1,line.size());
             double value = std::atof(value_str.c_str());
-            std::cout <<"****"<<value<<"****"<<std::endl;
             this->data[key] = value;
         }    
         file.close();  
@@ -47,12 +46,10 @@ std::string skip_spaces(std::string &line){
        
 
 std::string *split_line(std::string line){
-    std::string *splited = new std::string[2];
     size_t pos = line.find('|');
-    if(pos == std::string::npos){
-        delete[] splited;
+    if(pos == std::string::npos)
         throw std::runtime_error("Error : bad input => "+line);
-    }
+    std::string *splited = new std::string[2];
     splited[0] = line.substr(0,pos);
     splited[1] = line.substr(pos+1);
     return splited;
@@ -87,6 +84,9 @@ double check_value(std::string &value){
         throw std::runtime_error("Error : bad value");
     }
     for(size_t i=0;i<value.size();i++){
+        if(std::count(value.begin(),value.end(),'.') > 1 ){
+            throw std::runtime_error("Error : bad value");
+        }
         if(i == 0 && value[i] == '-')
             continue;
         if(!isdigit(value[i]) && value[i] != '.'){
@@ -104,22 +104,19 @@ double check_value(std::string &value){
 
 double BitcoinExchange:: get_bitcoin_Ex(std::string &date,std::string &value){
     check_date(date);
-    check_value(value);
-    //double val = std::stod(value);
-    //double res = 0.0;
+    double val = check_value(value);
+    double res = 0.00;
     for(std::map<std::string,double>::iterator it = this->data.begin();it != this->data.end();it++){
-       //std::cout<<it->first<<" => "<<it->second<<std::endl;
-        // if(it->first.compare(date) == 0){
-        //     res= (it->second * val);
-        //     std::cout<<"hello"<<res<<std::endl;
-        //     break;
-        // }
-        // else{
-        //     res = -1;
-        //     break;
-        // }
+        if(it->first == date){
+            return res=val * it->second;
+        }
+        else if(it->first > date){
+            std::map<std::string,double>::iterator prev = it;
+            prev--;
+            return res=val * prev->second;
+        }
     }
-    return 0.0;
+    return res;
 }
 void BitcoinExchange::read(std::istream &file){
     std::string line;
@@ -135,9 +132,7 @@ void BitcoinExchange::read(std::istream &file){
             splited = split_line(line);
              check_date(splited[0]);
             check_value(splited[1]);
-            double res = get_bitcoin_Ex(splited[0],splited[1]);
-            (void)res;
-            //std::cout<<splited[0]<<" => "<<splited[1]<<" = "<<res<<std::endl;
+            std::cout<<splited[0]<<" => "<<splited[1]<<" = "<< get_bitcoin_Ex(splited[0],splited[1])<<std::endl;
         }
         catch(std::runtime_error &e){
             std::cout<<e.what()<<std::endl;
