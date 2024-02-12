@@ -2,10 +2,10 @@ NAME = RPN
 CC = c++
 RM = rm -rf
 OBJ_DIR = obj
-SRC = BitcoinExchange.cpp main.cpp
+SRC = RPN.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g -fsanitize=address
-HEADERS = BitcoinExchange.hpp
+HEADERS = RPN.hpp
 
 all: $(NAME)
 
