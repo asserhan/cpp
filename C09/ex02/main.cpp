@@ -7,7 +7,14 @@ int main(int ac, char **av){
         std::cerr << "Error Wrong Arguments" << std::endl;
         return 1;
     }
-    PmergeMe p(ac, av);
+    try{
+        PmergeMe p(ac, av);
+        p.sortVector();
+        p.sortDeque();
+       
+    }catch(const std::exception &e){
+        std::cerr << e.what() << std::endl;
+    }
    
     return 0;
 }
