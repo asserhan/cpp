@@ -11,23 +11,26 @@ PmergeMe::PmergeMe(int ac, char **av) {
             std::cerr << "Error " << std::endl;
             return;
         }
-        v.push_back(std::stoi(str));
         vector.push_back(std::stoi(str));
+        deque.push_back(std::stoi(str));
     }
 }
 PmergeMe::PmergeMe(const PmergeMe &oobj) {
     *this = oobj;
 }
 
-
 PmergeMe &PmergeMe::operator=(const PmergeMe &oobj) {
-    v = oobj.v;
-    vector = oobj.vector;
-    d = oobj.d;
-    deque = oobj.deque;
+    if (this != &oobj){
+        vector = oobj.vector;
+        deque = oobj.deque;
+    }
     return *this;
 }
 
 PmergeMe::~PmergeMe() {
 
+}
+
+void PmergeMe :: sortVector(){
+    
 }

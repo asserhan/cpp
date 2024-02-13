@@ -9,9 +9,7 @@
 class PmergeMe {
 
     private :
-    std::vector<int> v;
     std::vector<int> vector;
-    std::deque<int> d;
     std::deque<int> deque;
     public :
         PmergeMe();
@@ -19,6 +17,8 @@ class PmergeMe {
         ~PmergeMe();
         PmergeMe(const PmergeMe &oobj);
         PmergeMe &operator=(const PmergeMe &oobj);
+        void sortVector();
+        void sortDeque();
 
 
 };
