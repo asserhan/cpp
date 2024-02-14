@@ -1,5 +1,5 @@
 #include "PmergeMe.hpp"
-
+#include <climits>
 PmergeMe::PmergeMe() {
 
 }
@@ -11,10 +11,11 @@ PmergeMe::PmergeMe(int ac, char **av) {
             throw std::invalid_argument("Error");
         if(str.compare("") == 0)
             throw std::invalid_argument("Error");
-        if (std::atoi(str.c_str()) > std::numeric_limits<int>::max())
-            throw std::out_of_range("Error");
-        this->unsVector.push_back(std::atoi(str.c_str()));
-        this->unsdDeque.push_back(std::atoi(str.c_str()));
+        long value = std::atol(str.c_str());
+        if(value > std::numeric_limits<int>::max())
+            throw std::invalid_argument("Error");
+        this->unsVector.push_back(value);
+        this->unsdDeque.push_back(value);
     }
 }
 PmergeMe::PmergeMe(const PmergeMe &oobj) {
