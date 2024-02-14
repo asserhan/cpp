@@ -9,8 +9,10 @@
 class PmergeMe {
 
     private :
-    std::vector<int> vector;
-    std::deque<int> deque;
+    std::vector<int> unsVector;
+    std::vector<int>soredVector;
+    std::deque<int> unsdDeque;
+    std::deque<int> soredDeque;
     public :
         PmergeMe();
         PmergeMe(int ac,char **av);
