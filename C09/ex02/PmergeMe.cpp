@@ -97,8 +97,8 @@ void MergeSortPairs(std::vector<std::pair<int, int> > &pairs){
     MergeSortPairs(left);
     MergeSortPairs(right);
     Merge(left, right, pairs);
-  
 }
+
 void PmergeMe :: sortVector() {
     std::cout << "Before : ";
     for(size_t i = 0; i < this->unsVector.size(); i++){
@@ -114,23 +114,24 @@ void PmergeMe :: sortVector() {
         }
         return;
     }
+    int struggler = -1;
     if(this->unsVector.size() % 2 != 0)
     {
-        int struggler = this->unsVector.back();
+        struggler = this->unsVector.back();
         this->unsVector.pop_back();
-        std::cout<<struggler<<std::endl;
     }
     std::vector<std::pair<int, int> > pairs = splitVecor(this->unsVector);
     for(size_t i = 0; i < pairs.size(); i++){
         if(pairs[i].first < pairs[i].second)
             std::swap(pairs[i].first, pairs[i].second);
-        std::cout << pairs[i].first << " " << pairs[i].second << std::endl;
     }
     MergeSortPairs(pairs);
+    std::vector<int> pend;
     for(size_t i = 0; i < pairs.size(); i++){
-        std::cout << pairs[i].first << " " << pairs[i].second << std::endl;
+        this->soredVector.push_back(pairs[i].first);
+        pend.push_back(pairs[i].second);
     }
-    std::cout <<time1 << std::endl;
+ 
 
 }
 
