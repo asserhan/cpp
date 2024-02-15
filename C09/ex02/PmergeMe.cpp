@@ -3,7 +3,13 @@
 PmergeMe::PmergeMe() {
 
 }
-
+bool isDupluicate(std::vector<int> &v, int value){
+    for(size_t i = 0; i < v.size(); i++){
+        if(v[i] == value)
+            return true;
+    }
+    return false;
+}
 PmergeMe::PmergeMe(int ac, char **av) {
     for (int i = 1; i < ac; i++){
         std::string str = av[i];
@@ -14,8 +20,11 @@ PmergeMe::PmergeMe(int ac, char **av) {
         long value = std::atol(str.c_str());
         if(value > std::numeric_limits<int>::max())
             throw std::invalid_argument("Error");
+        if(isDupluicate(this->unsVector, value) == true)
+            throw std::invalid_argument("Error");
         this->unsVector.push_back(value);
         this->unsdDeque.push_back(value);
+
     }
 }
 PmergeMe::PmergeMe(const PmergeMe &oobj) {
@@ -52,6 +61,44 @@ std::vector<std::pair<int, int> > splitVecor(std::vector<int> &v){
     }
     return pairs;
 }
+void Merge(std::vector<std::pair<int, int> > &left, std::vector<std::pair<int, int> > &right, std::vector<std::pair<int, int> > &pairs){
+    int leftsize = pairs.size() / 2;
+    int rightsize = pairs.size() - leftsize;
+    int i = 0, l = 0, r = 0;
+    while(l < leftsize && r < rightsize){
+        if(left[l].first < right[r].first){
+            pairs[i] = left[l];
+            l++;
+        }else{
+            pairs[i] = right[r];
+            r++;
+        }
+        i++;
+    }
+    while(l < leftsize){
+        pairs[i] = left[l];
+        l++;
+        i++;
+    }
+    while(r < rightsize){
+        pairs[i] = right[r];
+        r++;
+        i++;
+    }
+
+}
+void MergeSortPairs(std::vector<std::pair<int, int> > &pairs){
+   int len = pairs.size();
+    if(len <= 1) // base case
+       return;
+    int mid = len / 2;
+    std::vector<std::pair<int, int> > left = std::vector<std::pair<int, int> >(pairs.begin(), pairs.begin() + mid);
+    std::vector<std::pair<int, int> > right = std::vector<std::pair<int, int> >(pairs.begin() + mid, pairs.end());
+    MergeSortPairs(left);
+    MergeSortPairs(right);
+    Merge(left, right, pairs);
+  
+}
 void PmergeMe :: sortVector() {
     std::cout << "Before : ";
     for(size_t i = 0; i < this->unsVector.size(); i++){
@@ -74,10 +121,15 @@ void PmergeMe :: sortVector() {
         std::cout<<struggler<<std::endl;
     }
     std::vector<std::pair<int, int> > pairs = splitVecor(this->unsVector);
-    for(size_t i = 0 ;i<pairs.size(); i++){
-        std::cout << "Pair : " << pairs[i].first << " " << pairs[i].second << std::endl;
+    for(size_t i = 0; i < pairs.size(); i++){
+        if(pairs[i].first < pairs[i].second)
+            std::swap(pairs[i].first, pairs[i].second);
+        std::cout << pairs[i].first << " " << pairs[i].second << std::endl;
     }
-    
+    MergeSortPairs(pairs);
+    for(size_t i = 0; i < pairs.size(); i++){
+        std::cout << pairs[i].first << " " << pairs[i].second << std::endl;
+    }
     std::cout <<time1 << std::endl;
 
 }
