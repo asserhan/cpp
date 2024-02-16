@@ -33,7 +33,7 @@ int RPN::calculate(std::string str) {
             this->_stack.push(str[i] - '0');
         } else if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') {
             if (this->_stack.size() < 2)
-                throw std::domain_error("Error");
+                throw std::logic_error("Error");
             a = this->_stack.top();
             this->_stack.pop();
             b = this->_stack.top();
@@ -46,7 +46,7 @@ int RPN::calculate(std::string str) {
                 res = b * a;
             else if (str[i] == '/') {
                 if (a == 0)
-                    throw std::domain_error("Error");
+                    throw std::logic_error("Error");
                 res = b / a;
             }
             this->_stack.push(res);
@@ -54,6 +54,6 @@ int RPN::calculate(std::string str) {
             throw std::invalid_argument("Error");
     }
     if (this->_stack.size() != 1)
-        throw std::domain_error("Error");
+        throw std::logic_error("Error");
     return this->_stack.top();
 }
