@@ -151,7 +151,7 @@ void PmergeMe :: sortVector() {
         std::cout <<this->unsVector[i] << " ";
     }
     std::cout << std::endl;
-    //unsigned long time1 = clock();
+    unsigned long time1 = clock();
     std::vector<int> v = this->unsVector;
     if(isSorted(this->unsVector) == true)
     {
@@ -179,23 +179,24 @@ void PmergeMe :: sortVector() {
         this->soredVector.push_back(pairs[i].first);
         pend.push_back(pairs[i].second);
     }
-    // for(size_t i = 0; i < this->soredVector.size(); i++){
-    //     std::cout << this->soredVector[i] << " ";
-    // }
-    // std::cout << std::endl;
-    // for(size_t i = 0; i < pend.size(); i++){
-    //     std::cout << pend[i] << " ";
-    // }
     std::vector<int>IndexSeq=GetIndexSeq(pend);
-    // for(size_t i = 0; i<IndexSeq.size();i++)
-    //     std::cout << IndexSeq[i] << " ";
-    for(int i = 0; i < IndexSeq.size(); i++){
+    for(size_t i = 0; i < IndexSeq.size(); i++){
         int InsertNum = pend[IndexSeq[i] - 1];
         int InsertIndex = BinarySearch(this->soredVector, InsertNum);
-    }
-    
- 
+        this->soredVector.insert(this->soredVector.begin() + InsertIndex, InsertNum);
 
+    }
+    if(struggler != -1){
+        int InsertIndex = BinarySearch(this->soredVector, struggler);
+        this->soredVector.insert(this->soredVector.begin() + InsertIndex, struggler);
+    }
+    unsigned long time2 = clock();
+    std::cout << "After : ";
+    for(size_t i = 0; i < this->soredVector.size(); i++){
+        std::cout <<this->soredVector[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "Time : " << time2 - time1 << std::endl;
 }
 
 // void PmergeMe :: sortDeque() {
