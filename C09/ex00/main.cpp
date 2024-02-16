@@ -21,6 +21,7 @@ int main(int ac,char **av){
     try{
         check_file(file);
         BitcoinExchange exchange;
+      
         exchange.read(file);
     }
     catch(std::exception &e){

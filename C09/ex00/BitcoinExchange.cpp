@@ -74,7 +74,13 @@ void check_date(std::string &date)
     if(year < 0 || year > 2024 || month < 1 || month > 12 || day < 1 || day > 31){
         throw std::runtime_error("Error : bad date");
     }
-    if(month == 2 && year % 4 == 0 && day > 29){
+    if(month == 2 && year % 4 != 0 && day >= 29){
+        throw std::runtime_error("Error : bad date");
+    }
+    if(month == 2 && year % 4 == 0 && day >= 30){
+        throw std::runtime_error("Error : bad date");
+    }
+    if(month % 2 == 0 && day >= 31){
         throw std::runtime_error("Error : bad date");
     }
 }
@@ -87,17 +93,19 @@ double check_value(std::string &value){
         if(std::count(value.begin(),value.end(),'.') > 1 ){
             throw std::runtime_error("Error : bad value");
         }
-        if(i == 0 && value[i] == '-')
+        if(i == 0 && (value[i] == '-' || value[i] == '+'))
             continue;
-        if(!isdigit(value[i]) && value[i] != '.'){
+        if(!isdigit(value[i]) && value[i] != '.' ){
             throw std::runtime_error("Error : bad value");
         }
+        if(value[i] == '.' && i == value.size()-1)
+            throw std::runtime_error("Error : bad value");
     }
-    double val = std::stod(value);
+    double val = std::atof(value.c_str());
     if (val < 0){
         throw std::runtime_error("Error : not a positive number");
     }
-    if(val >= INT_MAX)
+    if(val > 1000)
         throw std::runtime_error("Error : too large a number");
     return val;
 }
@@ -105,18 +113,17 @@ double check_value(std::string &value){
 double BitcoinExchange:: get_bitcoin_Ex(std::string &date,std::string &value){
     check_date(date);
     double val = check_value(value);
-    double res = 0.00;
-    for(std::map<std::string,double>::iterator it = this->data.begin();it != this->data.end();it++){
-        if(it->first == date){
-            return res=val * it->second;
-        }
-        else if(it->first > date){
-            std::map<std::string,double>::iterator prev = it;
-            prev--;
-            return res=val * prev->second;
-        }
+    std::cout<<val<<std::endl;
+    if(date < data.begin()->first){
+        throw std::runtime_error("Error : date out of range");
     }
-    return res;
+    if(date > data.rbegin()->first)
+        return (val * data.rbegin()->second);
+    std::map<std::string,double>::iterator it = data.lower_bound(date);
+    if(it != data.end()  && it->first == date)
+        return (val * it->second);
+    --it;
+    return(val * it->second);
 }
 void BitcoinExchange::read(std::istream &file){
     std::string line;
@@ -131,16 +138,15 @@ void BitcoinExchange::read(std::istream &file){
         try{
             splited = split_line(line);
              check_date(splited[0]);
-            check_value(splited[1]);
-            std::cout<<splited[0]<<" => "<<splited[1]<<" = "<< get_bitcoin_Ex(splited[0],splited[1])<<std::endl;
+            double val= check_value(splited[1]);
+            double res = get_bitcoin_Ex(splited[0],splited[1]);
+            std::cout<<splited[0]<<" => "<<val<<" = "<< res <<std::endl;
         }
         catch(std::runtime_error &e){
             std::cout<<e.what()<<std::endl;
             continue;
         }
-
     }
-     
 }
 bool is_empty(std::ifstream &file){
     return(file.peek() == std::ifstream::traits_type::eof());
