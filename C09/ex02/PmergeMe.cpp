@@ -114,7 +114,7 @@ std::vector<int> GetIndexSeq(std::vector<int> &pend){
     std::vector<int>JacobhallSeq = GetJacobhallSeq(size + 1);
     bool lastIsJacobhall = false;
     for(size_t i = 0; i < size + 1; i++){
-        if(lastIsJacobhall == false){
+        if(lastIsJacobhall == false ){
             IndexSeq.push_back(JacobhallSeq[0]);
             JacobhallSeq.erase(JacobhallSeq.begin());
             lastIsJacobhall = true;
@@ -176,11 +176,17 @@ void PmergeMe :: sortVector() {
         pend.push_back(pairs[i].second);
     }
     std::vector<int>IndexSeq=GetIndexSeq(pend);
+    for(size_t i = 0;i<pend.size();i++){
+        std::cout << pend[i] << " ";
+    }
+    std::cout << std::endl;
     for(size_t i = 0; i < IndexSeq.size(); i++){
-        int InsertNum = pend[IndexSeq[i] - 1];
-        int InsertIndex = BinarySearch(this->soredVector, InsertNum);
-        this->soredVector.insert(this->soredVector.begin() + InsertIndex, InsertNum);
-
+        size_t index = IndexSeq[i] - 1;
+        if(index >= 0 && index < pend.size()){
+            int InsertNum = pend[index];
+            int InsertIndex = BinarySearch(this->soredVector, InsertNum);
+            this->soredVector.insert(this->soredVector.begin() + InsertIndex, InsertNum);
+        }
     }
     if(struggler != -1){
         int InsertIndex = BinarySearch(this->soredVector, struggler);
@@ -322,9 +328,12 @@ void PmergeMe :: sortDeque() {
     }
     std::deque<int>IndexSeq=GetIndexSeqD(pend);
     for(size_t i = 0; i < IndexSeq.size(); i++){
-        int InsertNum = pend[IndexSeq[i] - 1];
-        int InsertIndex = BinarySearchD(this->soredDeque, InsertNum);
-        this->soredDeque.insert(this->soredDeque.begin() + InsertIndex, InsertNum);
+        size_t index = IndexSeq[i] - 1;
+        if(index >= 0 && index < pend.size()){
+            int InsertNum = pend[index];
+            int InsertIndex = BinarySearchD(this->soredDeque, InsertNum);
+            this->soredDeque.insert(this->soredDeque.begin() + InsertIndex, InsertNum);
+        }
     }
     if(struggler != -1){
         int InsertIndex = BinarySearchD(this->soredDeque, struggler);
