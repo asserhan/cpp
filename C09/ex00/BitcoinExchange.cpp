@@ -65,6 +65,8 @@ std::string *split_line(std::string line)
 	if (pos == std::string::npos)
 		throw std::runtime_error("Error : bad input => " + line);
 	std::string *splited = new std::string[2];
+	if(splited == NULL)
+		throw std::runtime_error("Error : bad allocation");
 	splited[0] = line.substr(0, pos);
 	splited[1] = line.substr(pos + 1);
 	return (splited);
@@ -78,38 +80,26 @@ void	check_date(std::string &date)
 
 	date = skip_spaces(date);
 	if (date.empty() || date.size() != 10 || date[4] != '-' || date[7] != '-')
-	{
 		throw std::runtime_error("Error : bad date");
-	}
 	for (int i = 0; i < 10; i++)
 	{
 		if (i == 4 || i == 7)
 			continue ;
 		if (!isdigit(date[i]))
-		{
 			throw std::runtime_error("Error : bad date");
-		}
 	}
 	year = atoi(date.substr(0, 4).c_str());
 	month = atoi(date.substr(5, 2).c_str());
 	day = atoi(date.substr(8, 2).c_str());
 	if (year < 0 || year > 2024 || month < 1 || month > 12 || day < 1
 		|| day > 31)
-	{
 		throw std::runtime_error("Error : bad date");
-	}
 	if (month == 2 && year % 4 != 0 && day >= 29)
-	{
 		throw std::runtime_error("Error : bad date");
-	}
 	if (month == 2 && year % 4 == 0 && day >= 30)
-	{
 		throw std::runtime_error("Error : bad date");
-	}
 	if (month % 2 == 0 && day >= 31)
-	{
 		throw std::runtime_error("Error : bad date");
-	}
 }
 double	check_value(std::string &value)
 {
@@ -117,33 +107,23 @@ double	check_value(std::string &value)
 
 	value = skip_spaces(value);
 	if (value.empty())
-	{
 		throw std::runtime_error("Error : bad value");
-	}
 	if (value.size() == 1 && (value[0] == '-' || value[0] == '+'))
-	{
 		throw std::runtime_error("Error : bad value");
-	}
 	for (size_t i = 0; i < value.size(); i++)
 	{
 		if (std::count(value.begin(), value.end(), '.') > 1)
-		{
 			throw std::runtime_error("Error : bad value");
-		}
 		if (i == 0 && (value[i] == '-' || value[i] == '+'))
 			continue ;
 		if (!isdigit(value[i]) && value[i] != '.')
-		{
 			throw std::runtime_error("Error : bad value");
-		}
 		if (value[i] == '.' && i == value.size() - 1)
 			throw std::runtime_error("Error : bad value");
 	}
 	val = atof(value.c_str());
 	if (val < 0)
-	{
 		throw std::runtime_error("Error : not a positive number");
-	}
 	if (val > 1000)
 		throw std::runtime_error("Error : too large a number");
 	return (val);
@@ -152,7 +132,6 @@ double	check_value(std::string &value)
 double BitcoinExchange::get_bitcoin_Ex(std::string &date, std::string &value)
 {
 	double	val;
-
 	check_date(date);
 	val = check_value(value);
 	if (date < data.begin()->first)
@@ -190,12 +169,10 @@ void BitcoinExchange::read(std::istream &file)
 		}
 		catch (std::runtime_error &e)
 		{
+			delete[] splited;
 			std::cout << e.what() << std::endl;
 			continue ;
 		}
+		delete[] splited;
 	}
-}
-bool	is_empty(std::ifstream &file)
-{
-	return (file.peek() == std::ifstream::traits_type::eof());
 }

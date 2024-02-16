@@ -13,12 +13,9 @@ void	check_file(std::ifstream &file)
 	if (statbuf.st_mode & S_IFDIR)
 		throw std::runtime_error("Error : file is a directory.");
 }
-void ff(){
-    system("leaks btc");
-}
+
 int	main(int ac, char **av)
 {
-    atexit(ff);
 	if (ac > 2)
 	{
 		std::cout << "Error : Wrong argument" << std::endl;

@@ -20,5 +20,4 @@ class BitcoinExchange
 	double get_bitcoin_Ex(std::string &date, std::string &value);
 	void print();
 };
-bool	is_empty(std::ifstream &file);
 #endif
