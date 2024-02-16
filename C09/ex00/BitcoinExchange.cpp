@@ -89,6 +89,9 @@ double check_value(std::string &value){
     if(value.empty()){
         throw std::runtime_error("Error : bad value");
     }
+    if(value.size() == 1 && (value[0] == '-' || value[0] == '+')){
+        throw std::runtime_error("Error : bad value");
+    }
     for(size_t i=0;i<value.size();i++){
         if(std::count(value.begin(),value.end(),'.') > 1 ){
             throw std::runtime_error("Error : bad value");
@@ -101,7 +104,7 @@ double check_value(std::string &value){
         if(value[i] == '.' && i == value.size()-1)
             throw std::runtime_error("Error : bad value");
     }
-    double val = std::atof(value.c_str());
+    double val = atof(value.c_str());
     if (val < 0){
         throw std::runtime_error("Error : not a positive number");
     }
@@ -113,7 +116,6 @@ double check_value(std::string &value){
 double BitcoinExchange:: get_bitcoin_Ex(std::string &date,std::string &value){
     check_date(date);
     double val = check_value(value);
-    std::cout<<val<<std::endl;
     if(date < data.begin()->first){
         throw std::runtime_error("Error : date out of range");
     }
