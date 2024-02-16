@@ -98,14 +98,60 @@ void MergeSortPairs(std::vector<std::pair<int, int> > &pairs){
     MergeSortPairs(right);
     Merge(left, right, pairs);
 }
+std::vector<int> GetJacobhallSeq(int size){
+    std::vector<int> JacobhallSeq;
+    JacobhallSeq.push_back(0);
+    JacobhallSeq.push_back(1);
+    for(int i = 2; i < size; i++){
+        JacobhallSeq.push_back(JacobhallSeq[i - 1] + 2 * JacobhallSeq[i - 2]);
+    }
+    JacobhallSeq.erase(JacobhallSeq.begin());
+    JacobhallSeq.erase(JacobhallSeq.begin());
+    return JacobhallSeq;
+}
+std::vector<int> GetIndexSeq(std::vector<int> &pend){
+    size_t size = pend.size();
+    std::vector<int> IndexSeq;
+    std::vector<int>JacobhallSeq = GetJacobhallSeq(size + 1);
+    bool lastIsJacobhall = false;
+    for(size_t i = 0; i < size + 1; i++){
+        if(lastIsJacobhall == false){
+            IndexSeq.push_back(JacobhallSeq[0]);
+            JacobhallSeq.erase(JacobhallSeq.begin());
+            lastIsJacobhall = true;
+            
+        }
+        else{
+            if(std::find(IndexSeq.begin(),IndexSeq.end(),i) != IndexSeq.end())
+                i++;
+            IndexSeq.push_back(i);
+            lastIsJacobhall = false;
+        }
 
+    }
+    return IndexSeq;
+}
+int BinarySearch(std::vector<int> &v, int value){
+    int left = 0;
+    int right = v.size() - 1;
+    while(left <= right){
+        int mid = left + (right - left) / 2;
+        if(v[mid] == value)
+            return mid;
+        if(v[mid] < value)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return left;
+}
 void PmergeMe :: sortVector() {
     std::cout << "Before : ";
     for(size_t i = 0; i < this->unsVector.size(); i++){
         std::cout <<this->unsVector[i] << " ";
     }
     std::cout << std::endl;
-    unsigned long time1 = clock();
+    //unsigned long time1 = clock();
     std::vector<int> v = this->unsVector;
     if(isSorted(this->unsVector) == true)
     {
@@ -119,7 +165,9 @@ void PmergeMe :: sortVector() {
     {
         struggler = this->unsVector.back();
         this->unsVector.pop_back();
+        
     }
+    std::cout<< struggler << std::endl;
     std::vector<std::pair<int, int> > pairs = splitVecor(this->unsVector);
     for(size_t i = 0; i < pairs.size(); i++){
         if(pairs[i].first < pairs[i].second)
@@ -131,6 +179,21 @@ void PmergeMe :: sortVector() {
         this->soredVector.push_back(pairs[i].first);
         pend.push_back(pairs[i].second);
     }
+    // for(size_t i = 0; i < this->soredVector.size(); i++){
+    //     std::cout << this->soredVector[i] << " ";
+    // }
+    // std::cout << std::endl;
+    // for(size_t i = 0; i < pend.size(); i++){
+    //     std::cout << pend[i] << " ";
+    // }
+    std::vector<int>IndexSeq=GetIndexSeq(pend);
+    // for(size_t i = 0; i<IndexSeq.size();i++)
+    //     std::cout << IndexSeq[i] << " ";
+    for(int i = 0; i < IndexSeq.size(); i++){
+        int InsertNum = pend[IndexSeq[i] - 1];
+        int InsertIndex = BinarySearch(this->soredVector, InsertNum);
+    }
+    
  
 
 }
