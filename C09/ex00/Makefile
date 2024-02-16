@@ -4,7 +4,7 @@ RM = rm -rf
 OBJ_DIR = obj
 SRC = BitcoinExchange.cpp main.cpp
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-FLAGS = -Wall -Werror -Wextra -std=c++98 -g -fsanitize=address
+FLAGS = -Wall -Werror -Wextra -std=c++98 
 HEADERS = BitcoinExchange.hpp
 
 all: $(NAME)

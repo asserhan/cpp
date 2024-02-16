@@ -4,19 +4,23 @@
 PmergeMe::PmergeMe() {
 
 }
-bool isDupluicate(std::vector<int> &v, int value){
-    for(size_t i = 0; i < v.size(); i++){
-        if(v[i] == value)
-            return true;
+
+bool isOnlySpces(std::string &str){
+    for(size_t i = 0; i < str.size(); i++){
+        if(str[i] != ' ')
+            return false;
     }
-    return false;
+    return true;
 }
+
 PmergeMe::PmergeMe(int ac, char **av) {
     for (int i = 1; i < ac; i++){
         std::string str = av[i];
-        if(str.find_first_not_of("0123456789 +/t") != std::string::npos)
+        if(str.find_first_not_of("0123456789") != std::string::npos)
             throw std::invalid_argument("Error");
         if(str.compare("") == 0)
+            throw std::invalid_argument("Error");
+        if(isOnlySpces(str) == true)
             throw std::invalid_argument("Error");
         long value = std::atol(str.c_str());
         if(value > std::numeric_limits<int>::max())
@@ -145,6 +149,12 @@ int BinarySearch(std::vector<int> &v, int value){
     return left;
 }
 void PmergeMe :: sortVector() {
+    if(this->unsVector.size() == 1)
+    {
+        std::cout<<this->unsVector[0]<<std::endl;
+        std::cout << "Time to process a range of " << this->unsVector.size() << " elements with std::vector : 0 us" << std::endl;
+        return;
+    }
     if(isSorted(this->unsVector) == true)
     {
         std::cout << "Already Sorted" << std::endl;
@@ -156,6 +166,39 @@ void PmergeMe :: sortVector() {
     }
     std::cout << std::endl;
     clock_t time1 = clock();
+    if(this->unsVector.size() == 2)
+    {
+        std::swap(this->unsVector[0], this->unsVector[1]);
+        clock_t time2 = clock();
+        double time = double(time2 - time1) / CLOCKS_PER_SEC;
+        std::cout << "After : ";
+        for(size_t i = 0; i < this->unsVector.size(); i++){
+            std::cout <<this->unsVector[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "Time to process a range of " << this->unsVector.size() <<std::fixed<< " elements with std::vector : " << time *1000000<< " us" << std::endl;
+        return;
+
+    }
+    if(this->unsVector.size() == 3)
+    {
+        if(this->unsVector[0] > this->unsVector[1])
+            std::swap(this->unsVector[0], this->unsVector[1]);
+        if(this->unsVector[1] > this->unsVector[2])
+            std::swap(this->unsVector[1], this->unsVector[2]);
+        if(this->unsVector[0] > this->unsVector[1])
+            std::swap(this->unsVector[0], this->unsVector[1]);
+        clock_t time2 = clock();
+        double time = double(time2 - time1) / CLOCKS_PER_SEC;
+        std::cout << "After : ";
+        for(size_t i = 0; i < this->unsVector.size(); i++){
+            std::cout <<this->unsVector[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "Time to process a range of " << this->unsVector.size() <<std::fixed<< " elements with std::vector : " << time *1000000<< " us" << std::endl;
+        return;
+
+    }
     std::vector<int> v = this->unsVector;
     int struggler = -1;
     if(this->unsVector.size() % 2 != 0)
@@ -176,10 +219,6 @@ void PmergeMe :: sortVector() {
         pend.push_back(pairs[i].second);
     }
     std::vector<int>IndexSeq=GetIndexSeq(pend);
-    for(size_t i = 0;i<pend.size();i++){
-        std::cout << pend[i] << " ";
-    }
-    std::cout << std::endl;
     for(size_t i = 0; i < IndexSeq.size(); i++){
         size_t index = IndexSeq[i] - 1;
         if(index >= 0 && index < pend.size()){
@@ -200,6 +239,10 @@ void PmergeMe :: sortVector() {
     }
     std::cout << std::endl;
     std::cout << "Time to process a range of " << this->unsVector.size() <<std::fixed<< " elements with std::vector : " << time *1000000<< " us" << std::endl;
+    if(std::is_sorted(this->soredVector.begin(), this->soredVector.end()) == false)
+        std::cout << "Not Sorted" << std::endl;
+    else
+        std::cout << "Sorted" << std::endl;
 }
 /**********Deque*************/
 std::deque<std::pair<int, int> > splitDeque(std::deque<int> &d){
@@ -296,7 +339,12 @@ int BinarySearchD(std::deque<int> &d, int value){
 }
 
 void PmergeMe :: sortDeque() {
-
+    if(this->unsdDeque.size() == 1)
+    {
+        std::cout<<this->unsdDeque[0]<<std::endl;
+        std::cout << "Time to process a range of " << this->unsdDeque.size() << " elements with std::deque : 0 us" << std::endl;
+        return;
+    }
     if(isSorted(this->unsdDeque) == true)
     {
         std::cout << "Already Sorted" << std::endl;
@@ -308,6 +356,39 @@ void PmergeMe :: sortDeque() {
     }
     std::cout << std::endl;
     clock_t time1 = clock();
+    if(this->unsVector.size() == 2)
+    {
+        std::swap(this->unsdDeque[0], this->unsdDeque[1]);
+        clock_t time2 = clock();
+        double time = double(time2 - time1) / CLOCKS_PER_SEC;
+        std::cout << "After : ";
+        for(size_t i = 0; i < this->unsdDeque.size(); i++){
+            std::cout <<this->unsdDeque[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "Time to process a range of " << this->unsdDeque.size() <<std::fixed<< " elements with std::deque : " << time *1000000<< " us" << std::endl;
+        return;
+
+    }
+    if(this->unsdDeque.size() == 3)
+    {
+        if(this->unsdDeque[0] > this->unsdDeque[1])
+            std::swap(this->unsdDeque[0], this->unsdDeque[1]);
+        if(this->unsdDeque[1] > this->unsdDeque[2])
+            std::swap(this->unsdDeque[1], this->unsdDeque[2]);
+        if(this->unsdDeque[0] > this->unsdDeque[1])
+            std::swap(this->unsdDeque[0], this->unsdDeque[1]);
+        clock_t time2 = clock();
+        double time = double(time2 - time1) / CLOCKS_PER_SEC;
+        std::cout << "After : ";
+        for(size_t i = 0; i < this->unsdDeque.size(); i++){
+            std::cout <<this->unsdDeque[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "Time to process a range of " << this->unsdDeque.size() <<std::fixed<< " elements with std::deque : " << time *1000000<< " us" << std::endl;
+        return;
+
+    }
     std::deque<int> d = this->unsdDeque;
     int struggler = -1;
     if(this->unsdDeque.size() % 2 != 0)
@@ -347,6 +428,10 @@ void PmergeMe :: sortDeque() {
     }
     std::cout << std::endl;
     std::cout << "Time to process a range of " << this->unsdDeque.size() <<std::fixed<< " elements with std::deque : " << time *1000000<< " us" << std::endl;
+    if(std::is_sorted(this->soredDeque.begin(), this->soredDeque.end()) == false)
+        std::cout << "Not Sorted" << std::endl;
+    else
+        std::cout << "Sorted" << std::endl;
 
 
 }
