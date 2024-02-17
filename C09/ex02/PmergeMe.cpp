@@ -30,6 +30,7 @@ PmergeMe::PmergeMe(int ac, char **av) {
 
     }
 }
+
 PmergeMe::PmergeMe(const PmergeMe &oobj) {
     *this = oobj;
 }
@@ -47,6 +48,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &oobj) {
 PmergeMe::~PmergeMe() {
 
 }
+
 template <class T>
 bool isSorted(T &container){
     for (size_t i = 0; i < container.size() - 1; i++){
@@ -64,6 +66,7 @@ std::vector<std::pair<int, int> > splitVecor(std::vector<int> &v){
     }
     return pairs;
 }
+
 void Merge(std::vector<std::pair<int, int> > &left, std::vector<std::pair<int, int> > &right, std::vector<std::pair<int, int> > &pairs){
     int leftsize = pairs.size() / 2;
     int rightsize = pairs.size() - leftsize;
@@ -88,8 +91,8 @@ void Merge(std::vector<std::pair<int, int> > &left, std::vector<std::pair<int, i
         r++;
         i++;
     }
-
 }
+
 void MergeSortPairs(std::vector<std::pair<int, int> > &pairs){
    int len = pairs.size();
     if(len <= 1) // base case
@@ -101,6 +104,7 @@ void MergeSortPairs(std::vector<std::pair<int, int> > &pairs){
     MergeSortPairs(right);
     Merge(left, right, pairs);
 }
+
 std::vector<int> GetJacobhallSeq(int size){
     std::vector<int> JacobhallSeq;
     JacobhallSeq.push_back(0);
@@ -112,6 +116,7 @@ std::vector<int> GetJacobhallSeq(int size){
     JacobhallSeq.erase(JacobhallSeq.begin());
     return JacobhallSeq;
 }
+
 std::vector<int> GetIndexSeq(std::vector<int> &pend){
     size_t size = pend.size();
     std::vector<int> IndexSeq;
@@ -134,6 +139,7 @@ std::vector<int> GetIndexSeq(std::vector<int> &pend){
     }
     return IndexSeq;
 }
+
 int BinarySearch(std::vector<int> &v, int value){
     int left = 0;
     int right = v.size() - 1;
@@ -148,6 +154,7 @@ int BinarySearch(std::vector<int> &v, int value){
     }
     return left;
 }
+
 void PmergeMe :: sortVector() {
     if(this->unsVector.size() == 1)
     {
@@ -239,11 +246,8 @@ void PmergeMe :: sortVector() {
     }
     std::cout << std::endl;
     std::cout << "Time to process a range of " << this->unsVector.size() <<std::fixed<< " elements with std::vector : " << time *1000000<< " us" << std::endl;
-    if(std::is_sorted(this->soredVector.begin(), this->soredVector.end()) == false)
-        std::cout << "Not Sorted" << std::endl;
-    else
-        std::cout << "Sorted" << std::endl;
 }
+
 /**********Deque*************/
 std::deque<std::pair<int, int> > splitDeque(std::deque<int> &d){
     std::deque<std::pair<int, int> > pairs;
@@ -253,6 +257,7 @@ std::deque<std::pair<int, int> > splitDeque(std::deque<int> &d){
     }
     return pairs;
 }
+
 void MergeD(std::deque<std::pair<int, int> > &left, std::deque<std::pair<int, int> > &right, std::deque<std::pair<int, int> > &pairs){
     int leftsize = pairs.size() / 2;
     int rightsize = pairs.size() - leftsize;
@@ -279,6 +284,7 @@ void MergeD(std::deque<std::pair<int, int> > &left, std::deque<std::pair<int, in
     }
 
 }
+
 void MergeSortPairsD(std::deque<std::pair<int, int> > &pairs){
     int len = pairs.size();
      if(len <= 1) // base case
@@ -290,6 +296,7 @@ void MergeSortPairsD(std::deque<std::pair<int, int> > &pairs){
      MergeSortPairsD(right);
      MergeD(left, right, pairs);
 }
+
 std::deque<int> GetJacobhallSeqD(int size){
     std::deque<int> JacobhallSeq;
     JacobhallSeq.push_back(0);
@@ -301,6 +308,7 @@ std::deque<int> GetJacobhallSeqD(int size){
     JacobhallSeq.erase(JacobhallSeq.begin());
     return JacobhallSeq;
 }
+
 std::deque<int> GetIndexSeqD(std::deque<int> &pend){
     size_t size = pend.size();
     std::deque<int> IndexSeq;
@@ -323,6 +331,7 @@ std::deque<int> GetIndexSeqD(std::deque<int> &pend){
     }
     return IndexSeq;
 }
+
 int BinarySearchD(std::deque<int> &d, int value){
     int left = 0;
     int right = d.size() - 1;
@@ -428,10 +437,4 @@ void PmergeMe :: sortDeque() {
     }
     std::cout << std::endl;
     std::cout << "Time to process a range of " << this->unsdDeque.size() <<std::fixed<< " elements with std::deque : " << time *1000000<< " us" << std::endl;
-    if(std::is_sorted(this->soredDeque.begin(), this->soredDeque.end()) == false)
-        std::cout << "Not Sorted" << std::endl;
-    else
-        std::cout << "Sorted" << std::endl;
-
-
 }
